@@ -1,3 +1,3 @@
-## E-Commerce Backend
+## Artly Store - (n.) transporting souls to a world of creativity.
+## We house an impressive selection of fine art to cater to different sensibilities and tastes. Discover our extensive fine art collection by browsing through our different collections below.
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
