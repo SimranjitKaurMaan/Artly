@@ -1,1 +1,1 @@
-# Artly Store
+# Artly Store - A Store of Art
