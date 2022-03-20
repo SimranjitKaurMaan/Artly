@@ -21,8 +21,9 @@ export const fetchData = async (requestType, apiName) => {
                 method: requestType,
                 headers
             })
-        console.log(`API Response: ${response}`);
-        return response;    
+        const jsonResponse = await response.json();
+        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);
        throw error;
