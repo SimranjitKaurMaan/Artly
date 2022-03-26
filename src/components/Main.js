@@ -6,12 +6,14 @@ import { Trending } from "./home /Trending"
 
 export const Main = () => {
     return <>
-            <main>
-                <div className="main-container flex-col-wrap-center">
-                  <Banner/>
-                  <Collection/>
-                  <Trending/>
-                </div>
-            </main>
+            <HeaderNavBar/>
+              <main>
+                  <div className="main-container flex-col-wrap-center">
+                    <Banner/>
+                    <Collection/>
+                    <Trending/>
+                  </div>
+              </main>
+            <Footer/>
         </>
 }
