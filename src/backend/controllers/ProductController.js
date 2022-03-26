@@ -34,3 +34,26 @@ export const getProductHandler = function (schema, request) {
     );
   }
 };
+
+/**
+ * This handler handles gets all products in a category in the db.
+ * send GET Request at /api/user/category/:categoryName/products
+ * */
+
+ export const getProductCategoryHandler = function (schema, request) {
+  const categoryName = request.params.categoryName;
+  console.log(categoryName)
+  try {
+    console.log(schema);
+    const products = this.db.products.where({categoryName: categoryName});
+    return new Response(200, {}, { products });
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};
