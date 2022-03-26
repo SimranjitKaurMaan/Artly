@@ -1,6 +1,5 @@
-import { Artist } from "./home /Artist"
 import { Banner } from "./home /Banner"
-import { Collection } from "./home /Collections"
+import { Collection } from "./home /Collection"
 import { Trending } from "./home /Trending"
 
 export const Main = () => {
@@ -8,6 +7,5 @@ export const Main = () => {
         <Banner/>
         <Collection/>
         <Trending/>
-        <Artist/>
       </>
 }
