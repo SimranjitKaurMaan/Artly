@@ -1,11 +1,13 @@
+import {Link} from 'react-router-dom';
+
 export const Footer = () => {
     return <><footer className="footer-container">
     <div className="footer-content flex-row-wrap-space-around">
         <div className="logo-container footer-logo">
-            <a href="./index.html">
+            <Link to="/">
                 <h1>Artly<span className="logo-text">Store</span>
                 </h1>
-            </a>
+            </Link>
         </div>
         <div className="flex-col-wrap-start">
             <h2 className="footer-heading">Location</h2>
