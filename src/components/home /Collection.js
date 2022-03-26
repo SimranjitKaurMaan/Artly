@@ -22,10 +22,10 @@ export const Collection = () => {
             { Object.keys(categoryProducts).length === categories.length && categories.map(category =>
             <div className="collection flex-col-wrap-start">
                 <div className="grid-4">
-                    <Link to="/products"><img className="collection-left-top-img img-sm" src={categoryProducts[category.categoryName][0]} alt="artworks"/></Link> 
-                    <Link to="/products"><img className="collection-right-top-img img-sm" src={categoryProducts[category.categoryName][1]} alt="artworks"/></Link>
-                    <Link to="/products"><img className="collection-left-bottom-img img-sm" src={categoryProducts[category.categoryName][2]} alt="artworks"/></Link>
-                    <Link to="/products"><img className="collection-right-bottom-img img-sm" src={categoryProducts[category.categoryName][3]} alt="artworks"/></Link>
+                    <Link to={`/products/${category.categoryName}`}><img className="collection-left-top-img img-sm" src={categoryProducts[category.categoryName][0]} alt="artworks"/></Link> 
+                    <Link to={`/products/${category.categoryName}`}><img className="collection-right-top-img img-sm" src={categoryProducts[category.categoryName][1]} alt="artworks"/></Link>
+                    <Link to={`/products/${category.categoryName}`}><img className="collection-left-bottom-img img-sm" src={categoryProducts[category.categoryName][2]} alt="artworks"/></Link>
+                    <Link to={`/products/${category.categoryName}`}><img className="collection-right-bottom-img img-sm" src={categoryProducts[category.categoryName][3]} alt="artworks"/></Link>
                 </div>
                 <div className="collection-header">{category.categoryName}</div>
                 <div className="collection-subheader">{category.artworksCount} Artworks</div>
