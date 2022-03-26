@@ -34,16 +34,16 @@ export const fetchData = async (requestType, apiName) => {
  * Fetches data from API 
  * @param {HTTP Request Type} requestType
  * @param {Param object to pass} paramData
- * @param {The name of API to be called to fetch data} apiName 
+ * @param {The url of API to be called to fetch data} apiUrl 
  * @returns {response from the API}
  */
- export const fetchDataWithParams = async (requestType, apiName, paramData) => {
+ export const fetchDataWithParams = async (requestType, apiUrl, paramData) => {
     const headers = {
         Accept: 'application/json'
     }
     try
     {
-        const response =  await fetch(`${apiName}?${toQueryString(paramData)}`, {
+        const response =  await fetch(`${apiUrl}?${toQueryString(paramData)}`, {
                 method: requestType,
                 headers
             })
