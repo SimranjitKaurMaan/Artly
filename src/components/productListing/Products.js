@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingRequestUtils";
 
 
@@ -16,7 +17,7 @@ export const Products = ({category}) => {
         <main>
             <div class="main-section">
                 <div class="main-container flex-row-wrap-center">
-                    {products.map(product => <div className="card-container card-icon-overlay-container">
+                    {products.map(product => <Link to={`/product/${product._id}`}><div className="card-container card-icon-overlay-container">
                         <div className="card-wish-icon"><i className="far fa-heart fa-2x icon-unchecked"></i></div>
                         <div className="card-body card-vertical-body">
                             <img className="card-img card-vertical-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>
@@ -32,7 +33,7 @@ export const Products = ({category}) => {
                         <div className="card-footer">
                             <button className="btn btn-secondary">Go to Cart</button>
                         </div>
-                    </div>)}
+                    </div></Link>)}
                 </div>
             </div>
         </main>

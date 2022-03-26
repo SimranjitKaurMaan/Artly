@@ -8,6 +8,6 @@ export const ProductListing = () => {
     return <div>
         <HeaderNavBar/>
             <Products category={category}/>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
 }
