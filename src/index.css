@@ -405,6 +405,8 @@ footer {
   align-items: center;
   padding: 1rem;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer-container i {
