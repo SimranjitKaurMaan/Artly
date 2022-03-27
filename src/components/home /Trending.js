@@ -1,4 +1,5 @@
 import { useState , useEffect} from "react";
+import {Link} from 'react-router-dom';
 
 import { fetchProducts } from "../utils/requestUtils/HomeRequestUtils";
 
@@ -20,7 +21,7 @@ export const Trending = () => {
             <>
                 <div className="collection flex-col-wrap-start">
                     <div className="trending-img-container">
-                        <a href="./"><img className="img-10" src={product.imageUrl} alt="artworks"/></a>
+                        <Link to={`/product/${product._id}`}><img className="img-10" src={product.imageUrl} alt="artworks"/></Link>
                         <div className="collection-header">{product.categoryName}</div>
                     </div>
                 </div>

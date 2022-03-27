@@ -1,13 +1,10 @@
 import "./App.css";
-import logo from "./logo.png";
-import MockAPI from "./mockAPI";
-import {Main} from './components/Main'
+import { Router } from "./components/routes";
 
 function App() {
   return (
     <div className="App">
-      {/* <MockAPI/> */}
-      <Main/>
+     <Router/>
     </div>
   );
 }
