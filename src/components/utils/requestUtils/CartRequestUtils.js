@@ -1,9 +1,19 @@
-import { fetchData, postDataWithToken } from "../../../services/APIHandler";
+import { Config } from "../../../Config";
+import { fetchDataWithToken, postDataWithToken } from "../../../services/APIHandler";
+import { RequestType } from "../../../services/APIHandler";
 
-export const fetchCart = async () => {
+export const fetchCartItems = async () => {
     const url = `${Config.apiHost}/user/cart`;
     console.log(url);
-    const response = await fetchData(RequestType.GET, url);
+    const response = await fetchDataWithToken(RequestType.GET, url);
     console.log(response);
     return response;
+ }
+
+ export const postToCart = async ({...product}) => {
+   const url = `${Config.apiHost}/user/cart`;
+   console.log(url);
+   const response = await postDataWithToken(RequestType.POST, url, product);
+   console.log(response);
+   return response;
  }

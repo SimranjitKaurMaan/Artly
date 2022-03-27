@@ -10,6 +10,7 @@ export const Login = () => {
     const loginHandler =  async (event) => {
         event.preventDefault();
         const response = await loginUser(userData);
+        console.log(`user info response`, JSON.stringify(response));
         if(response && response.encodedToken){
             navigate('/');
         } else{

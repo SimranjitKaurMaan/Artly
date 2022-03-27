@@ -19,7 +19,6 @@ export const fetchData = async (requestType, apiName) => {
     {
         const response =  await fetch(apiName, {
                 method: requestType,
-                credentials: 'include',
                 headers
             })
         const jsonResponse = await response.json();
@@ -41,7 +40,6 @@ export const fetchData = async (requestType, apiName) => {
  export const fetchDataWithParams = async (requestType, apiUrl, paramData) => {
     const headers = {
         Accept: 'application/json',
-        credentials: 'include'
     }
     try
     {
@@ -89,17 +87,39 @@ export const postData = async (requestType, apiUrl, data) => {
     }
 }
 
-export const postDataWithToken = async (requestType, apiUrl, data) => {
+export const postDataWithToken = async (requestType, apiUrl, {...data}) => {
+    const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
     const headers = {
-        Accept: 'application/json'
+        Accept: 'application/json',
+        authorization: encodedToken
     }
     try
     {
         const response =  await fetch(apiUrl, {
                 method: requestType,
                 headers,
-                credentials: 'include',
                 body: JSON.stringify(data)
+            })
+        const jsonResponse = await response.json();
+        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        return jsonResponse;    
+    } catch(error) {
+       console.warn(`API error ${error}`);
+       throw error;
+    }
+}
+
+export const fetchDataWithToken = async (requestType, apiUrl) => {
+    const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+    const headers = {
+        Accept: 'application/json',
+        authorization: encodedToken
+    }
+    try
+    {
+        const response =  await fetch(apiUrl, {
+                method: requestType,
+                headers
             })
         const jsonResponse = await response.json();
         console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
