@@ -66,3 +66,44 @@ const toQueryString = (obj) => {
   console.log(queryString);
   return queryString;  
 }
+
+export const postData = async (requestType, apiUrl, data) => {
+    const headers = {
+        Accept: 'application/json'
+    }
+    try
+    {
+        const response =  await fetch(apiUrl, {
+                method: requestType,
+                headers,
+                body: JSON.stringify(data)
+            })
+        const jsonResponse = await response.json();
+        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        return jsonResponse;    
+    } catch(error) {
+       console.warn(`API error ${error}`);
+       throw error;
+    }
+}
+
+export const postDataWithToken = async (requestType, apiUrl, data, token) => {
+    const headers = {
+        Accept: 'application/json'
+    }
+    try
+    {
+        const response =  await fetch(apiUrl, {
+                method: requestType,
+                headers,
+                body: JSON.stringify(data),
+                authorization: token
+            })
+        const jsonResponse = await response.json();
+        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        return jsonResponse;    
+    } catch(error) {
+       console.warn(`API error ${error}`);
+       throw error;
+    }
+}

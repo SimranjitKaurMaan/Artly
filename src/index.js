@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from "react-router-dom"
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { ProductProvider } from "./contexts/product-context";
 
 
 
@@ -14,9 +13,7 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ProductProvider>
-         <App />
-      </ProductProvider>
+      <App />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

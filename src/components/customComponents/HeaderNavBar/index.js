@@ -12,7 +12,7 @@ export const HeaderNavBar = () => {
         <form>
             <input type="text" name="search-bar" id="search-bar" placeholder="Search"/>
         </form>
-        <i class="fa fa-search fa-2x highlight-text"></i>
+        <i className="fa fa-search fa-2x highlight-text"></i>
     </div>
     <Link className="btn btn-primary btn-header-login" to="/login">Login</Link>
     <div className="header-nav">
