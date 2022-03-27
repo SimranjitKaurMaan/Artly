@@ -10,7 +10,7 @@ export const SignUp = () => {
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
-        localStorage.setItem("_login_id", response.encodedToken);
+        document.cookie = "token=" + response.encodedToken;
         navigate('/login');
     }
     return (<>

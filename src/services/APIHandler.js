@@ -40,7 +40,8 @@ export const fetchData = async (requestType, apiName) => {
  */
  export const fetchDataWithParams = async (requestType, apiUrl, paramData) => {
     const headers = {
-        Accept: 'application/json'
+        Accept: 'application/json',
+        credentials: 'include'
     }
     try
     {
@@ -88,16 +89,16 @@ export const postData = async (requestType, apiUrl, data) => {
     }
 }
 
-export const postDataWithToken = async (requestType, apiUrl, data, encodedToken) => {
+export const postDataWithToken = async (requestType, apiUrl, data) => {
     const headers = {
-        Accept: 'application/json',
-        Authorization: encodedToken,
+        Accept: 'application/json'
     }
     try
     {
         const response =  await fetch(apiUrl, {
                 method: requestType,
                 headers,
+                credentials: 'include',
                 body: JSON.stringify(data)
             })
         const jsonResponse = await response.json();

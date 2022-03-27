@@ -12,7 +12,6 @@ export const signupUser = async ({...userData}) => {
 export const loginUser = async ({...userData}) => {
     const url = `${Config.apiHost}/auth/login`
     console.log(url);
-    const encodedToken = localStorage.getItem("_login_id");
-    const response = await postDataWithToken(RequestType.POST, url, userData, encodedToken );
+    const response = await postDataWithToken(RequestType.POST, url, userData);
     return response;
 }
