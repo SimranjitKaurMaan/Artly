@@ -75,18 +75,12 @@ export function makeServer({ environment = "development" } = {}) {
       this.get("/user/cart", getCartItemsHandler.bind(this));
       this.post("/user/cart", addItemToCartHandler.bind(this));
       this.post("/user/cart/:productId", updateCartItemHandler.bind(this));
-      this.delete(
-        "/user/cart/:productId",
-        removeItemFromCartHandler.bind(this)
-      );
+      this.delete("/user/cart/:productId",removeItemFromCartHandler.bind(this));
 
       // wishlist routes (private)
       this.get("/user/wishlist", getWishlistItemsHandler.bind(this));
       this.post("/user/wishlist", addItemToWishlistHandler.bind(this));
-      this.delete(
-        "/user/wishlist/:productId",
-        removeItemFromWishlistHandler.bind(this)
-      );
+      this.delete("/user/wishlist/:productId",removeItemFromWishlistHandler.bind(this));
     },
   });
 }

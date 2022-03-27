@@ -14,8 +14,7 @@ export const Products = ({category}) => {
     },[])
 
     const AddToCartHandler = async (event) => {
-       console.log(event.target.id);
-       const selectedProduct = products.filter(product => product._id === event.target.id);
+       const selectedProduct = products.find(product => product._id === event.target.id);
        const response = await postToCart(selectedProduct);
        console.log(response);
     }

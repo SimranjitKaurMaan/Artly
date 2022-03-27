@@ -1,18 +1,29 @@
-import { useEffect, useState } from "react"
-import { fetchCartItems } from "./utils/requestUtils/CartRequestUtils";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { HeaderNavBar } from "./customComponents/HeaderNavBar";
+import { deleteFromCart, fetchCartItems } from "./utils/requestUtils/CartRequestUtils";
 
 export const Cart = () => {
-    const [products, setProducts] = useState([]);
-    // useEffect(() => {
-    //     (async () => {
-    //     const products = await fetchCartItems();
-    //     setProducts(products);
-    //     })();
-    // },[])
-    return <main>
+    const [cartProducts, setCartProducts] = useState([]);
+    useEffect(() => {
+        (async () => {
+        const products = await fetchCartItems();
+        console.log(`Cart: ${JSON.stringify(products.cart)}`)
+        setCartProducts(products.cart);
+        })();
+    },[]);
+
+    const DeleteFromCartHandler = async (event) => {
+        const selectedProduct = cartProducts.find(product => product._id === event.target.id);
+        const response = await deleteFromCart(selectedProduct._id);
+        console.log(response);
+     }
+    return <>
+    <HeaderNavBar/>
+    <main>
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
-                    {products.map(product => <div className="card-container card-icon-overlay-container">
+                    {cartProducts.map(product => <div className="card-container card-icon-overlay-container">
                         <div className="card-wish-icon"><i className="far fa-heart fa-2x icon-unchecked"></i></div>
                         <Link to={`/product/${product._id}`}>
                             <div className="card-body card-vertical-body">
@@ -28,10 +39,11 @@ export const Cart = () => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                            <button className="btn btn-secondary" id={product._id}>Remove from Cart</button>
+                            <button className="btn btn-secondary" id={product._id} onClick={DeleteFromCartHandler}>Remove from Cart</button>
                         </div>
                     </div>)}
                 </div>
             </div>
         </main>
+        </>
 }
