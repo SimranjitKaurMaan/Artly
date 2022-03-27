@@ -1,13 +1,13 @@
 import { useParams } from "react-router";
-import { Footer } from "./customComponents/Footer";
 import { HeaderNavBar } from "./customComponents/HeaderNavBar";
+import { Filter } from "./productListing/Filter";
 import { Products } from "./productListing/Products";
 
 export const ProductListing = () => {
     const { category } = useParams();
-    return <div>
-        <HeaderNavBar/>
+    return <div className="wrapper">
+            <HeaderNavBar/>
             <Products category={category}/>
-        {/* <Footer/> */}
-        </div>
+            <Filter/>
+        </div>    
 }

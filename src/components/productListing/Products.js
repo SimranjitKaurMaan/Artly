@@ -12,11 +12,9 @@ export const Products = ({category}) => {
         })();
     },[])
 
-    return <>
-        <div>Category: {category}</div>
-        <main>
-            <div class="main-section">
-                <div class="main-container flex-row-wrap-center">
+    return <main>
+            <div className="main-section">
+                <div className="main-container flex-row-wrap-center">
                     {products.map(product => <Link to={`/product/${product._id}`}><div className="card-container card-icon-overlay-container">
                         <div className="card-wish-icon"><i className="far fa-heart fa-2x icon-unchecked"></i></div>
                         <div className="card-body card-vertical-body">
@@ -37,5 +35,4 @@ export const Products = ({category}) => {
                 </div>
             </div>
         </main>
-    </>
 }
