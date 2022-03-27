@@ -10,12 +10,12 @@ export const ProductProvider = ({children}) => {
         setProducts(products);
         })();
     },[])
-    const [state, dispatch] = useReducer(productReducer, {
-        products: categoryProducts,
-        filteredProducts: categoryProducts
-    });
+    // const [state, dispatch] = useReducer(productReducer, {
+    //     products: categoryProducts,
+    //     filteredProducts: categoryProducts
+    // });
     return (
-        <ProductContext.Provider value={{ state, dispatch}}>
+        <ProductContext.Provider value={{}}>
             {children}
         </ProductContext.Provider>
     );
