@@ -5,9 +5,11 @@ import { signupUser } from './utils/requestUtils/AuthRequestUtils';
 
 export const SignUp = () => {
     const [userData, setUserData] = useState({email: '',password: ''});
-    const signupHandler =  async () => {
-        const user = await signupUser(userData);
-        console.log(user);
+    const signupHandler =  async (event) => {
+        event.preventDefault();
+        const response = await signupUser(userData);
+        document.cookie="_login_id=" + response.encodedToken; // store the token in the cookies
+        window.location.href = "/login"; //redirecting to the login page
     }
     return (<>
     <HeaderNavBar/>

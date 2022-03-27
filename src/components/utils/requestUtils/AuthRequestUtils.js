@@ -6,6 +6,5 @@ export const signupUser = async ({...userData}) => {
     const url = `${Config.apiHost}/auth/signup`
     console.log(url);
     const response = await postData(RequestType.POST, url, userData );
-    const user = response;
-    return user;
+    return response;
 }
