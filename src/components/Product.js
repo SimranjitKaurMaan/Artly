@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 import { fetchProduct } from "./utils/requestUtils/ProductListingRequestUtils";
 
 export const Product = () => {
@@ -11,7 +12,9 @@ export const Product = () => {
         setProduct(product);
         })();
     },[])
-    return <main>
+    return <>
+    <HeaderNavBar/>
+    <main>
     <div class="main-section">
         <div class="main-container flex-row-wrap-center">
             <div className="card-container card-icon-overlay-container">
@@ -34,4 +37,5 @@ export const Product = () => {
         </div>
     </div>
 </main>
+</>
 }
