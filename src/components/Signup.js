@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import {HeaderNavBar} from './customComponents/HeaderNavBar';
 import { signupUser } from './utils/requestUtils/AuthRequestUtils';
 
 export const SignUp = () => {
     const [userData, setUserData] = useState({email: '',password: ''});
+    const navigate = useNavigate();
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
-        document.cookie="_login_id=" + response.encodedToken; // store the token in the cookies
-        window.location.href = "/login"; //redirecting to the login page
+        localStorage.setItem("_login_id", response.encodedToken);
+        navigate('/login');
     }
     return (<>
     <HeaderNavBar/>

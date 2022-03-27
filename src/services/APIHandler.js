@@ -19,6 +19,7 @@ export const fetchData = async (requestType, apiName) => {
     {
         const response =  await fetch(apiName, {
                 method: requestType,
+                credentials: 'include',
                 headers
             })
         const jsonResponse = await response.json();
@@ -87,17 +88,17 @@ export const postData = async (requestType, apiUrl, data) => {
     }
 }
 
-export const postDataWithToken = async (requestType, apiUrl, data, token) => {
+export const postDataWithToken = async (requestType, apiUrl, data, encodedToken) => {
     const headers = {
-        Accept: 'application/json'
+        Accept: 'application/json',
+        Authorization: encodedToken,
     }
     try
     {
         const response =  await fetch(apiUrl, {
                 method: requestType,
                 headers,
-                body: JSON.stringify(data),
-                authorization: token
+                body: JSON.stringify(data)
             })
         const jsonResponse = await response.json();
         console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
