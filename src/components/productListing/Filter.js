@@ -7,7 +7,7 @@ export const Filter = () => {
         </div>
         <div className="slider-price-container">
             <h2>Price</h2>
-            <input className="price-slider" type="range" name="price-range" min="50" max="200" value="150"></input>
+            <input className="price-slider" type="range" name="price-range" min="50" max="200"></input>
         </div>
         <div className="category-container flex-col-wrap-start">
             <h2>Category</h2>
