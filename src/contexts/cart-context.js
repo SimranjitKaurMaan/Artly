@@ -5,44 +5,20 @@ import { cartReducer } from "../reducers/cartReducer";
 
 const CartContext = createContext();
 
-// const itemsInCart = [
-//     {
-//       id: 1,
-//       name: "kala chasma",
-//       price: 1000
-//     },
-//     {
-//       id: 2,
-//       name: "laal chhadi",
-//       price: 500
-//     },
-//     {
-//       id: 3,
-//       name: "jalebi",
-//       price: 50
-//     },
-//     {
-//       id: 4,
-//       name: "japani joota",
-//       price: 10000
-//     }
-//   ];
-
 export const CartProvider = ({ children }) => {
-   const [itemsInCart, setItemsInCart] = useState([]);
-
-    //fetch the products from cart  
-    useEffect(() => {
-        (async () => {
-        const products = await fetchCartItems();
-        setItemsInCart(products);
-        })();
-    },[])
-  const [state, dispatch] = useReducer(cartReducer, {
-    itemsInCart,
-    quantity: 0,
+   const [productsInCart, setProductsInCart] = useState([]);
+   const [state, dispatch] = useReducer(cartReducer, {
+    productsInCart: productsInCart,
     totalPrice: 0
   });
+    //fetch the products from cart  
+    // useEffect(() => {
+    //     (async () => {
+    //     const productStateInCart = await fetchCartItems();
+    //     console.log(`productStateInCart in CartProvider: ${JSON.stringify(productStateInCart)}`)
+    //     dispatch({ type: "RELOAD_CART", payload: productStateInCart})
+    //     })();
+    // },[])
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}

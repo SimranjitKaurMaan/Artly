@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/cart-context";
-import { postToCart } from "../utils/requestUtils/CartRequestUtils";
 import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingRequestUtils";
 
 
 export const Products = ({category}) => {
     const { state, dispatch} = useCart();
+    console.log(`Cart State in Products: ${JSON.stringify(state)}`);
     const [products, setProducts] = useState([]);
     useEffect(() => {
         (async () => {
@@ -15,11 +15,6 @@ export const Products = ({category}) => {
         })();
     },[])
 
-    // const AddToCartHandler = async (event) => {
-    //    const selectedProduct = products.find(product => product._id === event.target.id);
-    //    const response = await postToCart(selectedProduct);
-    //    console.log(response);
-    // }
     return <main>
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
@@ -39,7 +34,7 @@ export const Products = ({category}) => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                            <button className="btn btn-secondary" id={product._id} onClick={() => dispatch({ type: "ADD_TO_CART", payload: product})}>Add to Cart</button>
+                            <button className="btn btn-secondary" onClick={() => dispatch({ type: "ADD_TO_CART", payload: product})}>Add to Cart</button>
                         </div>
                     </div>)}
                 </div>

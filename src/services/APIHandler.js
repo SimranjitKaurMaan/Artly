@@ -22,7 +22,7 @@ export const fetchData = async (requestType, apiName) => {
                 headers
             })
         const jsonResponse = await response.json();
-        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        //console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
         return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);
@@ -48,7 +48,7 @@ export const fetchData = async (requestType, apiName) => {
                 headers
             })
         const jsonResponse = await response.json();
-        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        //console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
         return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);
@@ -87,7 +87,7 @@ const toQueryString = (obj) => {
                 headers
             })
         const jsonResponse = await response.json();
-        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        //console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
         return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);
@@ -107,7 +107,7 @@ export const postData = async (requestType, apiUrl, data) => {
                 body: JSON.stringify(data)
             })
         const jsonResponse = await response.json();
-        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        //console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
         return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);
@@ -130,7 +130,7 @@ export const postDataWithToken = async (requestType, apiUrl, data) => {
                 body: JSON.stringify(data)
             })
         const jsonResponse = await response.json();
-        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+        //console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
         return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);
@@ -151,7 +151,7 @@ export const fetchDataWithToken = async (requestType, apiUrl) => {
                 headers
             })
         const jsonResponse = await response.json();
-        console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
+       // console.log(`API Response: ${JSON.stringify(jsonResponse)}`);
         return jsonResponse;    
     } catch(error) {
        console.warn(`API error ${error}`);

@@ -1,36 +1,41 @@
+import { deleteFromCart, postToCart, updateQuantityInCart } from "../components/utils/requestUtils/CartRequestUtils";
+
 export const cartReducer = (state, action) => {
     console.log(action);
     console.log(`${JSON.stringify(state)}`);
     switch (action.type) {
       case "INCREMENT_QTY_IN_CART":
-        // increment in cart in backend  
+        // TODO: increment in backend and if successful change in frontend.
+        (async () => await updateQuantityInCart(action.payload._id , {type: 'increment'})
+        )(); 
         return {
           ...state,
-          quantity: state.quantity + 1,
+          productsInCart: [...state.productsInCart.filter((item) => item._id !== action.payload._id) , {...action.payload, qty: action.payload.qty + 1}],
           totalPrice: state.totalPrice + action.payload.price
         };
       case "DECREMENT_QTY_IN_CART":
-        // decrease from cart in backend  
+        (async () => await updateQuantityInCart(action.payload._id , {type: 'decrement'})
+        )();
         return {
           ...state,
-          quantity: state.quantity - 1,
+          productsInCart: [...state.productsInCart.filter((item) => item._id !== action.payload._id) , {...action.payload, qty: action.payload.qty - 1}],
           totalPrice: state.totalPrice - action.payload.price
         };
       case "REMOVE_FROM_CART":
-        // remove from cart in backend  
+        (async () => await deleteFromCart(action.payload)
+        )();
         return {
           ...state,
-          quantity: state.quantity - 1,
           totalPrice: state.totalPrice - action.payload.price,
-          itemsInCart: state.itemsInCart.filter((item) => item !== action.payload)
+          productsInCart: state.productsInCart.filter((item) => item._id !== action.payload._id)
         };
       case "ADD_TO_CART":
-        // add to cart in backend
+        (async () => {await postToCart(action.payload);
+        })();
         return {
             ...state,
-            quantity: state.quantity + 1,
             totalPrice: state.totalPrice + action.payload.price,
-            itemsInCart: [...state.itemsInCart , action.payload]
+            productsInCart: [...state.productsInCart , {...action.payload, qty: 1}]
         };
       default:
         return state;

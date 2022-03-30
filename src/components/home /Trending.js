@@ -8,7 +8,7 @@ export const Trending = () => {
     useEffect(() => {
         (async () => {
         const products = await fetchProducts();
-        console.log("inside trending ",JSON.stringify(products));
+        //console.log("inside trending ",JSON.stringify(products));
         const trendingProducts = products.filter(product => product.rating > 4)
         setTrendingProducts(trendingProducts);
         })();
