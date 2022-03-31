@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
         const selectedProduct = cartProducts.find(item => item._id === product._id);
         const updatedCartProducts = await updateQuantityInCart(selectedProduct._id , {type: 'increment'});
         const updatedProduct = updatedCartProducts.find(item => item._id === product._id);
-        dispatch({type: 'INCREMENT_QTY_IN_CART', payload: {products: updatedCartProducts, price: updatedProduct.price }});
+        dispatch({type: 'INCREMENT_QTY_IN_CART', payload: {products: updatedCartProducts, price: updatedProduct.price}});
     }
 
     const decrementCartItemHandler = async ({...product}) => {

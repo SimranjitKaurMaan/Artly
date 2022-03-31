@@ -19,7 +19,7 @@ export const cartReducer = (state, action) => {
       case "DELETE_FROM_CART":
         return {
           ...state,
-          totalPrice: state.totalPrice - action.payload.price,
+          totalPrice: state.totalPrice - (action.payload.price*action.payload.qty),
           productsInCart: state.productsInCart.filter((item) => item._id !== action.payload._id)
         };
       case "ADD_TO_CART":
