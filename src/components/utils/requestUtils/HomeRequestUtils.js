@@ -11,7 +11,7 @@ export const fetchCategories = async () => {
 
 export const fetchProducts = async () => {
     const url = `${Config.apiHost}/products`
-    console.log(url);
+    //console.log(url);
     const response = await fetchData(RequestType.GET, url);
     const products = response.products;
     return products;
@@ -22,6 +22,6 @@ export const fetchProductsImageUrlByCategory = async (categoryName) => {
     console.log(url);
     const response = await fetchData(RequestType.GET, url);
     const imageUrls = response.products.map(product => product.imageUrl);
-    console.log(`fetchProductsImageUrlByCategory ${JSON.stringify(imageUrls)}`);
+    //console.log(`fetchProductsImageUrlByCategory ${JSON.stringify(imageUrls)}`);
     return imageUrls;
 }

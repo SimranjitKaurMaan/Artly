@@ -1,50 +1,47 @@
-import { createContext, useState, useEffect, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext } from "react";
 
-import { fetchCartItems } from "../components/utils/requestUtils/CartRequestUtils";
+import { fetchCartItems,deleteFromCart, updateQuantityInCart } from "../components/utils/requestUtils/CartRequestUtils";
 import { cartReducer } from "../reducers/cartReducer";
+import { postToCart } from "../components/utils/requestUtils/CartRequestUtils";
 
 const CartContext = createContext();
 
-// const itemsInCart = [
-//     {
-//       id: 1,
-//       name: "kala chasma",
-//       price: 1000
-//     },
-//     {
-//       id: 2,
-//       name: "laal chhadi",
-//       price: 500
-//     },
-//     {
-//       id: 3,
-//       name: "jalebi",
-//       price: 50
-//     },
-//     {
-//       id: 4,
-//       name: "japani joota",
-//       price: 10000
-//     }
-//   ];
-
 export const CartProvider = ({ children }) => {
-   const [itemsInCart, setItemsInCart] = useState([]);
-
-    //fetch the products from cart  
-    useEffect(() => {
-        (async () => {
-        const products = await fetchCartItems();
-        setItemsInCart(products);
-        })();
-    },[])
-  const [state, dispatch] = useReducer(cartReducer, {
-    itemsInCart,
-    quantity: 0,
+   const [state, dispatch] = useReducer(cartReducer, {
+    productsInCart: [],
     totalPrice: 0
   });
+
+    const addToCartHandler = async ({...product}) => {
+        const response = await postToCart(product);
+        const addedProduct = response.find(item => item._id === product._id);
+        dispatch({type: 'ADD_TO_CART', payload: addedProduct});
+    }
+    const deleteFromCartHandler = async ({...product}) => {
+        const cartProducts = await fetchCartItems();
+        const selectedProduct = cartProducts.find(item => item._id === product._id);
+        await deleteFromCart(selectedProduct._id);
+        dispatch({type: 'DELETE_FROM_CART', payload: selectedProduct});
+     }
+    
+    const incrementCartItemHandler = async ({...product}) => {
+        const cartProducts = await fetchCartItems();
+        const selectedProduct = cartProducts.find(item => item._id === product._id);
+        const updatedCartProducts = await updateQuantityInCart(selectedProduct._id , {type: 'increment'});
+        const updatedProduct = updatedCartProducts.find(item => item._id === product._id);
+        dispatch({type: 'INCREMENT_QTY_IN_CART', payload: {products: updatedCartProducts, price: updatedProduct.price }});
+    }
+
+    const decrementCartItemHandler = async ({...product}) => {
+       const cartProducts = await fetchCartItems();
+       const selectedProduct = cartProducts.find(item => item._id === product._id);
+       const updatedCartProducts = await updateQuantityInCart(selectedProduct._id , {type: 'decrement'});
+       const updatedProduct = updatedCartProducts.find(item => item._id === product._id);
+       dispatch({type: 'DECREMENT_QTY_IN_CART', payload: {products: updatedCartProducts, price: updatedProduct.price }});
+    } 
+     
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ state, dispatch, addToCartHandler, deleteFromCartHandler, decrementCartItemHandler, incrementCartItemHandler }}>
       {children}
     </CartContext.Provider>
   );

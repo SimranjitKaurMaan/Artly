@@ -1,27 +1,35 @@
-import { Config } from "../../../Config";
-import { fetchDataWithToken, postDataWithParams, postDataWithToken } from "../../../services/APIHandler";
+import { Config as config } from "../../../Config";
+import { fetchDataWithToken, postDataWithParams, postDataWithToken, fetchDataWithParamsWithToken } from "../../../services/APIHandler";
 import { RequestType } from "../../../services/APIHandler";
 
 export const fetchCartItems = async () => {
-    const url = `${Config.apiHost}/user/cart`;
+    const url = `${config.apiHost}/user/cart`;
     console.log(url);
     const response = await fetchDataWithToken(RequestType.GET, url);
-    console.log(response);
-    return response;
+    console.log(`fetchCartItems: ${JSON.stringify(response)}`);
+    return response.cart;
  }
 
  export const postToCart = async ({...product}) => {
-   const url = `${Config.apiHost}/user/cart`;
+   const url = `${config.apiHost}/user/cart`;
    console.log(url);
    const response = await postDataWithToken(RequestType.POST, url, {product});
-   console.log(response);
-   return response;
+   console.log(`postToCart: ${JSON.stringify(response)}`);
+   return response.cart;
  }
 
  export const deleteFromCart = async (productId) => {
-  const url = `${Config.apiHost}/user/cart`;
+  const url = `${config.apiHost}/user/cart`;
   console.log(url);
   const response = await postDataWithParams(RequestType.DELETE, url, productId);
-  console.log(response);
+  console.log(`deleteFromCart: ${JSON.stringify(response)}`);
   return response;
+}
+
+export const updateQuantityInCart = async (productId, {...action}) => {
+  const url = `${config.apiHost}/user/cart/${productId}`;
+  console.log(url);
+  const response = await postDataWithToken(RequestType.POST, url, {action});
+  console.log(`updateQuantityInCart: ${JSON.stringify(response)}`);
+  return response.cart;
 }
