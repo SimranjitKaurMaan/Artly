@@ -1,7 +1,9 @@
 import {Link} from 'react-router-dom';
-
+import { useCart } from '../../../contexts/cart-context';
 
 export const HeaderNavBar = () => {
+    const { state } = useCart();
+    const {productsInCart} = state;
     return <><header>
     <div className="logo-container">
         <Link to="/">
@@ -28,7 +30,7 @@ export const HeaderNavBar = () => {
                 </li>
                 <li>
                     <div className="badge-container">
-                        <span className="badge badge-md badge-text">0</span>
+                        <span className="badge badge-md badge-text">{productsInCart.length}</span>
                         <Link to="/cart">
                             <img className="img-xs" src="https://res.cloudinary.com/duddwta8d/image/upload/v1648081714/cart_hxnyvn.svg" alt="shopping-cart"/>
                         </Link>
