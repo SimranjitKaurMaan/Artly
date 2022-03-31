@@ -1,5 +1,5 @@
 import { Config as config } from "../../../Config";
-import { fetchDataWithToken, postDataWithParams, postDataWithToken, fetchDataWithParamsWithToken } from "../../../services/APIHandler";
+import { fetchDataWithToken, postDataWithParams, postDataWithToken } from "../../../services/APIHandler";
 import { RequestType } from "../../../services/APIHandler";
 
 export const fetchCartItems = async () => {
