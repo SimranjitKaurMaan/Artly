@@ -1,3 +1,5 @@
+import { deleteFromCart, postToCart, updateQuantityInCart } from "../components/utils/requestUtils/CartRequestUtils";
+
 export const cartReducer = (state, action) => {
     console.log(action);
     console.log(`${JSON.stringify(state)}`);
