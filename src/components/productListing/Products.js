@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect , useState} from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/cart-context";
 import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingRequestUtils";
 
 
 export const Products = ({category}) => {
-    const { state, dispatch, addToCartHandler } = useCart();
-    console.log(`Cart State in Products: ${JSON.stringify(state)}`);
     const [products, setProducts] = useState([]);
+    const { state, dispatch, addToCartHandler} = useCart();
+    const {productsInCart} = state;
+    console.log(`Cart State in Products: ${JSON.stringify(state)}`);
     useEffect(() => {
         (async () => {
         const products = await fetchProductsByCategory(category);
@@ -34,7 +35,7 @@ export const Products = ({category}) => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                            <button className="btn btn-secondary" onClick={() => addToCartHandler(product)}>Add to Cart</button>
+                           { productsInCart.some(item => item._id === product._id) ? <Link to={`/cart`}><button className="btn btn-secondary">Go to Cart</button></Link>:<button className="btn btn-secondary" id={product._id} onClick={() => {addToCartHandler(product);}}>Add to Cart</button>}
                         </div>
                     </div>)}
                 </div>

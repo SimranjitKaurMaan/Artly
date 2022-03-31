@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useState } from "react";
 
 import { fetchCartItems,deleteFromCart, updateQuantityInCart } from "../components/utils/requestUtils/CartRequestUtils";
 import { cartReducer } from "../reducers/cartReducer";
