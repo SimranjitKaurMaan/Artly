@@ -81,7 +81,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Think and Grow Rich1",
-    author: "Shiv Khera",
+    artist: "Shiv Khera",
     price:  4.85,
     rating: 4.9,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081719/portrait-7_kymgrl.jpg",
@@ -90,7 +90,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Think and Grow Rich2",
-    author: "Shiv Khera",
+    artist: "Shiv Khera",
     price:  4.85,
     rating: 3.9,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081719/portrait-7_kymgrl.jpg",
@@ -99,7 +99,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Think and Grow Rich3",
-    author: "Shiv Khera",
+    artist: "Shiv Khera",
     price:  4.85,
     rating: 2.9,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081719/portrait-7_kymgrl.jpg",
@@ -108,7 +108,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Think and Grow Rich4",
-    author: "Shiv Khera",
+    artist: "Shiv Khera",
     price:  4.85,
     rating: 1.9,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081719/portrait-7_kymgrl.jpg",

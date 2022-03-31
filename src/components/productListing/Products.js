@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { HeaderNavBar } from "./customComponents/HeaderNavBar";
-import { deleteFromCart, fetchCartItems } from "./utils/requestUtils/CartRequestUtils";
+import { postToCart } from "../utils/requestUtils/CartRequestUtils";
+import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingRequestUtils";
 
-export const Cart = () => {
-    const [cartProducts, setCartProducts] = useState([]);
+
+export const Products = ({category}) => {
+    const [products, setProducts] = useState([]);
     useEffect(() => {
         (async () => {
-        const products = await fetchCartItems();
-        console.log(`Cart: ${JSON.stringify(products.cart)}`)
-        setCartProducts(products.cart);
+        const products = await fetchProductsByCategory(category);
+        setProducts(products);
         })();
-    },[]);
+    },[])
 
-    const DeleteFromCartHandler = async (event) => {
-        const selectedProduct = cartProducts.find(product => product._id === event.target.id);
-        const response = await deleteFromCart(selectedProduct._id);
-        console.log(response);
-     }
-    return <>
-    <HeaderNavBar/>
-    <main>
+    const AddToCartHandler = async (event) => {
+       const selectedProduct = products.find(product => product._id === event.target.id);
+       const response = await postToCart(selectedProduct);
+       console.log(response);
+    }
+    return <main>
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
-                    {cartProducts.map(product => <div className="card-container card-icon-overlay-container">
+                    {products.map(product => <div className="card-container card-icon-overlay-container">
                         <div className="card-wish-icon"><i className="far fa-heart fa-2x icon-unchecked"></i></div>
                         <Link to={`/product/${product._id}`}>
                             <div className="card-body card-vertical-body">
@@ -39,11 +37,10 @@ export const Cart = () => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                            <button className="btn btn-secondary" id={product._id} onClick={DeleteFromCartHandler}>Remove from Cart</button>
+                            <button className="btn btn-secondary" id={product._id} onClick={AddToCartHandler}>Add to Cart</button>
                         </div>
                     </div>)}
                 </div>
             </div>
         </main>
-        </>
 }

@@ -14,6 +14,6 @@ export const Main = () => {
                     <Trending/>
                   </div>
               </main>
-            <Footer/>
+            {/* <Footer/> */}
         </>
 }
