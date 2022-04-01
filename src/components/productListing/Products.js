@@ -8,7 +8,6 @@ export const Products = ({category}) => {
     const [products, setProducts] = useState([]);
     const { state, dispatch, addToCartHandler} = useCart();
     const {productsInCart} = state;
-    console.log(`Cart State in Products: ${JSON.stringify(state)}`);
     useEffect(() => {
         (async () => {
         const products = await fetchProductsByCategory(category);
