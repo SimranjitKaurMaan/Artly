@@ -14,6 +14,7 @@ export const Cart = () => {
     <HeaderNavBar/>
     <main>
             <div className="main-section">
+            <h1 className="highlight-text">My Cart</h1>
                 <div className="main-container flex-row-wrap-center">
                     <div className="flex-col-wrap-center">
                         {productsInCart.map(product => 

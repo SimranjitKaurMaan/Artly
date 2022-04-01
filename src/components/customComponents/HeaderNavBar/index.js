@@ -1,9 +1,12 @@
 import {Link} from 'react-router-dom';
 import { useCart } from '../../../contexts/cart-context';
+import { useWishlist } from '../../../contexts/wishlist-context';
 
 export const HeaderNavBar = () => {
     const { state } = useCart();
+    const {wishlistState} = useWishlist();
     const {productsInCart} = state;
+    const {productsInWishlist} = wishlistState;
     return <><header>
     <div className="logo-container">
         <Link to="/">
@@ -22,7 +25,7 @@ export const HeaderNavBar = () => {
             <ul>
                 <li>
                     <div className="badge-container">
-                        <span className="badge badge-md badge-text">0</span>
+                        <span className="badge badge-md badge-text">{productsInWishlist.length}</span>
                         <Link to="/wishlist"> 
                             <img className="img-xs" src="https://res.cloudinary.com/duddwta8d/image/upload/v1648081716/heart_vhmlcf.svg" alt="wishlist"/>
                         </Link>
