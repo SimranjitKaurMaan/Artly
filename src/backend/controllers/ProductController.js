@@ -42,9 +42,7 @@ export const getProductHandler = function (schema, request) {
 
  export const getProductCategoryHandler = function (schema, request) {
   const categoryName = request.params.categoryName;
-  console.log(categoryName)
   try {
-    console.log(schema);
     const products = this.db.products.where({categoryName: categoryName});
     return new Response(200, {}, { products });
   } catch (error) {
