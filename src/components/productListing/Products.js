@@ -10,6 +10,7 @@ export const Products = ({category}) => {
     const { state, dispatch, addToCartHandler} = useCart();
     const { wishlistState, addToWishlistHandler} = useWishlist();
     const {productsInCart} = state;
+    const {productsInWishlist} = wishlistState;
     console.log(`Cart State in Products: ${JSON.stringify(state)}`);
     useEffect(() => {
         (async () => {
@@ -22,7 +23,7 @@ export const Products = ({category}) => {
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
                     {products.map(product => <div className="card-container card-icon-overlay-container">
-                        <div className="card-wish-icon" onClick={()=> addToWishlistHandler(product)}><i className="far fa-heart fa-2x icon-unchecked"></i></div>
+                        <div className="card-wish-icon" onClick={()=> addToWishlistHandler(product)}><i className={"far fa-heart fa-2x " + (productsInWishlist.some(item => item._id === product._id)? 'icon-checked': 'icon-unchecked')}></i></div>
                         <Link to={`/product/${product._id}`}>
                             <div className="card-body card-vertical-body">
                                 <img className="card-img card-vertical-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>
