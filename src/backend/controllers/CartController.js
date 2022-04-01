@@ -46,7 +46,6 @@ export const addItemToCartHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { product } = JSON.parse(request.requestBody);
-    console.log(`product in addItemToCartHandler: ${product}`)
     userCart.push({
       ...product,
       createdAt: formatDate(),

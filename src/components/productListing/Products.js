@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect , useState} from "react";
 import { Link } from "react-router-dom";
-import { postToCart } from "../utils/requestUtils/CartRequestUtils";
+import { useCart } from "../../contexts/cart-context";
 import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingRequestUtils";
 
 
 export const Products = ({category}) => {
     const [products, setProducts] = useState([]);
+    const { state, dispatch, addToCartHandler} = useCart();
+    const {productsInCart} = state;
     useEffect(() => {
         (async () => {
         const products = await fetchProductsByCategory(category);
@@ -13,11 +15,6 @@ export const Products = ({category}) => {
         })();
     },[])
 
-    const AddToCartHandler = async (event) => {
-       const selectedProduct = products.find(product => product._id === event.target.id);
-       const response = await postToCart(selectedProduct);
-       console.log(response);
-    }
     return <main>
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
@@ -37,7 +34,7 @@ export const Products = ({category}) => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                            <button className="btn btn-secondary" id={product._id} onClick={AddToCartHandler}>Add to Cart</button>
+                           { productsInCart.some(item => item._id === product._id) ? <Link to={`/cart`}><button className="btn btn-secondary">Go to Cart</button></Link>:<button className="btn btn-secondary" id={product._id} onClick={() => {addToCartHandler(product);}}>Add to Cart</button>}
                         </div>
                     </div>)}
                 </div>
