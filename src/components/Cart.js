@@ -11,7 +11,6 @@ export const Cart = () => {
     const deliveryCharges = totalPrice*0.05;
     const amountToPay = totalPrice - totalDiscount + deliveryCharges;
 
-    console.log(`state in cart: ${JSON.stringify(state)}`);
     return <>
     <HeaderNavBar/>
     <main>
