@@ -1,20 +1,22 @@
-import { useEffect , useState} from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/cart-context";
+import { useProductList } from "../../contexts/productlist-context";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingRequestUtils";
 
 
 export const Products = ({category}) => {
-    const [products, setProducts] = useState([]);
-    const { cartState, dispatch, addToCartHandler} = useCart();
-    const { wishlistState, addToWishlistHandler} = useWishlist();
+    const {productlistState, addToProductListHandler} = useProductList();
+    const {cartState, addToCartHandler} = useCart();
+    const {wishlistState, addToWishlistHandler} = useWishlist();
+    const {products} = productlistState;
     const {productsInCart} = cartState;
     const {productsInWishlist} = wishlistState;
     useEffect(() => {
         (async () => {
         const products = await fetchProductsByCategory(category);
-        setProducts(products);
+        addToProductListHandler(products);
         })();
     },[])
 

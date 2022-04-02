@@ -1,4 +1,8 @@
+import { useProductList } from "../../contexts/productlist-context";
+
 export const Filter = () => {
+    const {productlistState} = useProductList();
+    const {products, minPrice, maxPrice} = productlistState;
     return (<aside>
     <div className="filter-container">
         <div className="filter-header">
@@ -7,14 +11,15 @@ export const Filter = () => {
         </div>
         <div className="slider-price-container">
             <h2>Price</h2>
-            <input className="price-slider" type="range" name="price-range" min="50" max="200"></input>
+            <input className="price-slider" type="range" name="price-range" min={minPrice} max={maxPrice}></input>
         </div>
         <div className="category-container flex-col-wrap-start">
-            <h2>Category</h2>
-            <span className="check-group"><input type="checkbox" name="category"></input><label className="check-group-label">Portraits</label></span>
-            <span className="check-group"><input type="checkbox" name="category"></input><label className="check-group-label">Basel Works</label></span>
-            <span className="check-group"><input type="checkbox" name="category"></input><label className="check-group-label">Photography</label></span>
-            <span className="check-group"><input type="checkbox" name="category"></input><label className="check-group-label">Water</label></span>
+            <h2>Artist</h2>
+            {products.map( product =>
+            <span className="check-group">
+                <input type="checkbox" name="category"></input><label className="check-group-label">{product.artist}</label>
+            </span>)}
+            
         </div>
         <div className="rating-container flex-col-wrap-start">
             <h2>Rating</h2>
