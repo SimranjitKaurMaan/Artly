@@ -12,9 +12,43 @@ export const productlistReducer = (state, action) => {
         return {
             ...state,
             products: [...action.payload],
+            filteredProducts: [...action.payload],
             minPrice: minPrice,
             maxPrice: maxPrice
         };
+      case "SORT_BY":
+        const sortType = action.payload;
+        switch (sortType) {
+          case "ascending":
+            return {
+              ...state,
+              filteredProducts: [...state.filteredProducts].sort(
+              (firstProduct, secondProduct) => firstProduct.price - secondProduct.price)
+            };
+          case "descending":
+            return {
+              ...state,
+              filteredProducts: [...state.filteredProducts].sort(
+              (firstProduct, secondProduct) => secondProduct.price - firstProduct.price
+            )};
+        }
+      case "FILTER_BY_ARTIST":
+        const artist = action.payload;
+        return {
+          ...state,
+          filteredProducts: [...state.products].filter(product => product.artist === artist)
+      }     
+      case "FILTER_BY_RATING":
+        const rating = action.payload;
+        return {
+          ...state,
+          filteredProducts: [...state.products].filter(product => product.rating >= rating)
+      } 
+      case "CLEAR_FILTERS" :
+        return {
+          ...state,
+          filteredProducts: [...state.products]
+      } 
       default:
         return state;
     }

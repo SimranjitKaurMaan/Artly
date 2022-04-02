@@ -10,7 +10,7 @@ export const Products = ({category}) => {
     const {productlistState, addToProductListHandler} = useProductList();
     const {cartState, addToCartHandler} = useCart();
     const {wishlistState, addToWishlistHandler} = useWishlist();
-    const {products} = productlistState;
+    const {products, filteredProducts} = productlistState;
     const {productsInCart} = cartState;
     const {productsInWishlist} = wishlistState;
     useEffect(() => {
@@ -18,12 +18,12 @@ export const Products = ({category}) => {
         const products = await fetchProductsByCategory(category);
         addToProductListHandler(products);
         })();
-    },[])
+    },[]);
 
     return <main>
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
-                    {products.map(product => <div className="card-container card-icon-overlay-container">
+                    {filteredProducts.map(product => <div className="card-container card-icon-overlay-container">
                         <div className="card-wish-icon" onClick={()=> addToWishlistHandler(product)}><i className={(productsInWishlist.find( ({ _id }) => _id === product._id )? 'fas': 'far') + " fa-heart fa-2x "}></i></div>
                         <Link to={`/product/${product._id}`}>
                             <div className="card-body card-vertical-body">

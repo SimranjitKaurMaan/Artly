@@ -9,8 +9,8 @@ export const products = [
   {
     _id: uuid(),
     title: "Abstract New1",
-    artist: "Rachel Green",
-    price:  400,
+    artist: "Rachel Green1",
+    price:  800,
     discount: 10,
     rating: 4.5,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081716/collection-2_knhw2x.jpg",
@@ -19,8 +19,8 @@ export const products = [
   {
     _id: uuid(),
     title: "Abstract New2",
-    artist: "Rachel Green",
-    price:  400,
+    artist: "Rachel Green1",
+    price:  1200,
     discount: 10,
     rating: 3.5,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081717/avatar-2_mkzjaw.jpg",
@@ -29,7 +29,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Abstract New3",
-    artist: "Rachel Green",
+    artist: "Rachel Green2",
     price:  400,
     discount: 10,
     rating: 2.5,
@@ -39,8 +39,8 @@ export const products = [
   {
     _id: uuid(),
     title: "Abstract New4",
-    artist: "Rachel Green",
-    price:  400,
+    artist: "Rachel Green2",
+    price:  1600,
     discount: 10,
     rating: 1.5,
     imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081276/sample.jpg",
