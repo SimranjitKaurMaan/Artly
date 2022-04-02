@@ -11,7 +11,6 @@ export const Products = ({category}) => {
     const { wishlistState, addToWishlistHandler} = useWishlist();
     const {productsInCart} = cartState;
     const {productsInWishlist} = wishlistState;
-    console.log(`Cart State in Products: ${JSON.stringify(cartState)}`);
     useEffect(() => {
         (async () => {
         const products = await fetchProductsByCategory(category);
@@ -23,7 +22,7 @@ export const Products = ({category}) => {
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
                     {products.map(product => <div className="card-container card-icon-overlay-container">
-                        <div className="card-wish-icon" onClick={()=> addToWishlistHandler(product)}><i className={"far fa-heart fa-2x " + (productsInWishlist.some(item => item._id === product._id)? 'icon-checked': 'icon-unchecked')}></i></div>
+                        <div className="card-wish-icon" onClick={()=> addToWishlistHandler(product)}><i className={(productsInWishlist.find( ({ _id }) => _id === product._id )? 'fas': 'far') + " fa-heart fa-2x "}></i></div>
                         <Link to={`/product/${product._id}`}>
                             <div className="card-body card-vertical-body">
                                 <img className="card-img card-vertical-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>
@@ -38,7 +37,7 @@ export const Products = ({category}) => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                           { productsInCart.some(item => item._id === product._id) ? <Link to={`/cart`}><button className="btn btn-secondary">Go to Cart</button></Link>:<button className="btn btn-secondary" id={product._id} onClick={() => addToCartHandler(product)}>Add to Cart</button>}
+                           { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`}>Go to Cart</Link></button>:<button className="btn btn-secondary" id={product._id} onClick={() => addToCartHandler(product)}>Add to Cart</button>}
                         </div>
                     </div>)}
                 </div>
