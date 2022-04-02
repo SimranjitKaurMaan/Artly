@@ -5,8 +5,8 @@ import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 
 export const WishList = () => {
     const {wishlistState, deleteFromWishlistHandler} = useWishlist();
-    const {state, addToCartHandler} = useCart();
-    const {productsInCart} = state;
+    const {cartState, addToCartHandler} = useCart();
+    const {productsInCart} = cartState;
     const { productsInWishlist } = wishlistState;
     return <div className="wishlist-wrapper">
             <HeaderNavBar/>

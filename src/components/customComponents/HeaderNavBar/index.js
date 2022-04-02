@@ -3,9 +3,9 @@ import { useCart } from '../../../contexts/cart-context';
 import { useWishlist } from '../../../contexts/wishlist-context';
 
 export const HeaderNavBar = () => {
-    const { state } = useCart();
+    const { cartState } = useCart();
     const {wishlistState} = useWishlist();
-    const {productsInCart} = state;
+    const {productsInCart} = cartState;
     const {productsInWishlist} = wishlistState;
     return <><header>
     <div className="logo-container">

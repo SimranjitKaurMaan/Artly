@@ -7,11 +7,11 @@ import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingReq
 
 export const Products = ({category}) => {
     const [products, setProducts] = useState([]);
-    const { state, dispatch, addToCartHandler} = useCart();
+    const { cartState, dispatch, addToCartHandler} = useCart();
     const { wishlistState, addToWishlistHandler} = useWishlist();
-    const {productsInCart} = state;
+    const {productsInCart} = cartState;
     const {productsInWishlist} = wishlistState;
-    console.log(`Cart State in Products: ${JSON.stringify(state)}`);
+    console.log(`Cart State in Products: ${JSON.stringify(cartState)}`);
     useEffect(() => {
         (async () => {
         const products = await fetchProductsByCategory(category);

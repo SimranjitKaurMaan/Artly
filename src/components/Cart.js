@@ -4,9 +4,9 @@ import { useWishlist } from "../contexts/wishlist-context";
 import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 
 export const Cart = () => {
-    const { state , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
+    const { cartState , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
     const { wishlistState, addToWishlistHandler} = useWishlist();
-    const {productsInCart, totalPrice } = state;
+    const {productsInCart, totalPrice } = cartState;
     const totalDiscount = totalPrice*0.2;
     const deliveryCharges = totalPrice*0.05;
     const amountToPay = totalPrice - totalDiscount + deliveryCharges;
