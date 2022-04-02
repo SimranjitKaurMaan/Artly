@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useCart } from "../contexts/cart-context";
+import { useWishlist } from "../contexts/wishlist-context";
 import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 
 export const Cart = () => {
-    const { state , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
-    const {productsInCart, totalPrice } = state;
+    const { cartState , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
+    const { wishlistState, addToWishlistHandler} = useWishlist();
+    const {productsInCart, totalPrice } = cartState;
     const totalDiscount = totalPrice*0.2;
     const deliveryCharges = totalPrice*0.05;
     const amountToPay = totalPrice - totalDiscount + deliveryCharges;
@@ -13,6 +15,7 @@ export const Cart = () => {
     <HeaderNavBar/>
     <main>
             <div className="main-section">
+            <h1 className="highlight-text">My Cart</h1>
                 <div className="main-container flex-row-wrap-center">
                     <div className="flex-col-wrap-center">
                         {productsInCart.map(product => 
@@ -34,7 +37,7 @@ export const Cart = () => {
                                                 </div>
                                                 <div className="card-hz-actions">
                                                     <button className="btn btn-primary" onClick={() => deleteFromCartHandler(product)}>Remove From Cart</button>
-                                                    <button className="btn btn-secondary">Move to Wishlist</button>
+                                                    <button className="btn btn-secondary" onClick={() => addToWishlistHandler(product)}>Move to Wishlist</button>
                                                 </div>
                                         </div>
                                 </div>
