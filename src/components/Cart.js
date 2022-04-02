@@ -5,8 +5,9 @@ import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 
 export const Cart = () => {
     const { cartState , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
-    const { wishlistState, addToWishlistHandler} = useWishlist();
+    const { wishlistState, addToWishlistHandler, deleteFromWishlistHandler} = useWishlist();
     const {productsInCart, totalPrice } = cartState;
+    const {productsInWishlist} = wishlistState;
     const totalDiscount = totalPrice*0.2;
     const deliveryCharges = totalPrice*0.05;
     const amountToPay = totalPrice - totalDiscount + deliveryCharges;
@@ -37,7 +38,7 @@ export const Cart = () => {
                                                 </div>
                                                 <div className="card-hz-actions">
                                                     <button className="btn btn-primary" onClick={() => deleteFromCartHandler(product)}>Remove From Cart</button>
-                                                    <button className="btn btn-secondary" onClick={() => addToWishlistHandler(product)}>Move to Wishlist</button>
+                                                    { productsInWishlist.some(item => item._id === product._id) ? <button className="btn btn-secondary" onClick={() => deleteFromWishlistHandler(product)}>Remove from Wishlist</button>:<button className="btn btn-secondary" onClick={() => addToWishlistHandler(product)}>Move to Wishlist</button>}
                                                 </div>
                                         </div>
                                 </div>
