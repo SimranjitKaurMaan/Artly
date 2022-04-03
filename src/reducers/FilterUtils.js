@@ -14,14 +14,14 @@ export const handleSortByPrice = (items, { sortBy }) => {
   };
 
 export const handleFilterByRating = ( items , {rating}) =>  {
-    console.log(`rating: ${rating}`);
     const filteredItems = items.filter(product => product.rating >= rating);
     console.log(filteredItems);
     return filteredItems;
 } 
 
-export const handleFilterByArtist = ( items, {artist}) => {
-    const filteredItems = items.filter(product => product.artist === artist);
+export const handleFilterByArtist = ( items, {artists}) => {
+    console.log(`artists: ${artists}`);
+    const filteredItems = items.filter(product => artists.includes(product.artist));
     return filteredItems;
 }
 
@@ -38,7 +38,8 @@ export const applyFilterAndSorts = (state) => {
 const {
     products,
     sortBy,
-    rating
+    rating,
+    artists
 } = state;
 const composedFunctions = functionalChaining(
     { sortBy, rating },

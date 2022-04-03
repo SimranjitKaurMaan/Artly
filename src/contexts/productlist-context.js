@@ -11,7 +11,7 @@ export const ProductlistProvider = ({ children }) => {
     maxPrice: 0,
     sortBy: '',
     rating: 1,
-    artist: ''
+    artists: []
   });
 
   const addToProductListHandler = (products) => {

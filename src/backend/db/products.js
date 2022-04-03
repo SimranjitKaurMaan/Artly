@@ -29,7 +29,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Abstract New3",
-    artist: "Rachel Green2",
+    artist: "Rachel Green3",
     price:  400,
     discount: 10,
     rating: 2.5,

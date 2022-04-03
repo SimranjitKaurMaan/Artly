@@ -33,13 +33,15 @@ export const productlistReducer = (state, action) => {
       };
       case "FILTER_BY_ARTIST":{
         let result = [...state.products];
+        // hack: to nullify the previously selected artists
+        // const newState = {...state, artists: []}
         result = applyFilterAndSorts(state);
         const artist = action.payload;
-        const filteredByArtist = handleFilterByArtist([...result],{artist: artist})
+        const filteredByArtist = handleFilterByArtist([...result],{artists: [...state.artists, artist]})
         return {
           ...state,
           filteredProducts: filteredByArtist,
-          artist: action.payload
+          artists:[...state.artists, artist]
       }
       };     
       case "FILTER_BY_RATING": {
@@ -58,6 +60,9 @@ export const productlistReducer = (state, action) => {
       case "CLEAR_FILTERS" :{
         return {
           ...state,
+          sortBy: '',
+          rating: 1,
+          artists:[],
           filteredProducts: [...state.products]
        }
       };
