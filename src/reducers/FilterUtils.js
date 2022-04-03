@@ -19,6 +19,12 @@ export const handleFilterByRating = ( items , {rating}) =>  {
     return filteredItems;
 } 
 
+export const handleFilterByPrice = ( items , {priceLimit}) =>  {
+    const filteredItems = items.filter(product => product.price <= priceLimit);
+    console.log(filteredItems);
+    return filteredItems;
+} 
+
 export const handleFilterByArtist = ( items, {artists}) => {
     console.log(`artists: ${artists}`);
     const filteredItems = items.filter(product => artists.includes(product.artist));

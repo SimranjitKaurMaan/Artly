@@ -11,7 +11,8 @@ export const ProductlistProvider = ({ children }) => {
     maxPrice: 0,
     sortBy: '',
     rating: 1,
-    artists: []
+    artists: [],
+    priceLimit: 0
   });
 
   const addToProductListHandler = (products) => {
@@ -30,12 +31,16 @@ export const ProductlistProvider = ({ children }) => {
     dispatch({type: 'FILTER_BY_RATING', payload: rating});
   }
 
+  const filterByPriceHandler = (priceLimit) => {
+    dispatch({type: 'FILTER_BY_PRICE', payload: priceLimit});
+  }
+
   const clearFilters = () => {
     dispatch({type: 'CLEAR_FILTERS'});
   }
 
   return (
-    <ProductlistContext.Provider value={{ productlistState: state, sortByHandler, filterByArtistHandler, filterByRatingHandler, clearFilters, addToProductListHandler }}>
+    <ProductlistContext.Provider value={{ productlistState: state, sortByHandler, filterByArtistHandler, filterByRatingHandler, filterByPriceHandler, clearFilters, addToProductListHandler }}>
       {children}
     </ProductlistContext.Provider>
   );

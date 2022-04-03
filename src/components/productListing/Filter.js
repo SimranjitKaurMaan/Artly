@@ -1,8 +1,8 @@
 import { useProductList } from "../../contexts/productlist-context";
 
 export const Filter = () => {
-    const {productlistState, sortByHandler, filterByArtistHandler, filterByRatingHandler, clearFilters} = useProductList();
-    const {products, minPrice, maxPrice, sortBy, rating , artists} = productlistState;
+    const {productlistState, sortByHandler, filterByArtistHandler, filterByRatingHandler, filterByPriceHandler, clearFilters} = useProductList();
+    const {products, minPrice, maxPrice, sortBy, rating , artists, priceLimit} = productlistState;
     const distinctArtists = products.reduce((acc, { artist }) => (acc.includes(artist) ? acc : [...acc, artist]),[]);
 
     return (<aside>
@@ -11,9 +11,9 @@ export const Filter = () => {
             <h2>Filters</h2>
             <button className="btn btn-link" onClick={() => clearFilters()}>Clear</button>
         </div>
-        <div className="slider-price-container">
+        <div className="slider-price-container flex-col-wrap-start">
             <h2>Price</h2>
-            <input className="price-slider" type="range" name="price-range" min={minPrice} max={maxPrice}></input>
+            <span className="check-group"><input className="price-slider" type="range" name="price-range" value={priceLimit} min={minPrice} max={maxPrice} list="tickmarks" step="100" onChange={(e) => { const priceLimit = e.target.value; filterByPriceHandler(priceLimit)}}></input><label className="check-group-label">${priceLimit}</label></span>
         </div>
         <div className="category-container flex-col-wrap-start">
             <h2>Artist</h2>
