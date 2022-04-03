@@ -17,7 +17,7 @@
   - Add to Cart: I can click on the "Add to Cart" primary button which will add the item to the cart & once added shows "Go to Cart" on the product card.
   - Add to Wishlist: I can click on a "Add to Wishlist" secondary button or "Wishlist" secondary icon button where if I click adds the item in the wishlist - & vice-verse.
 - Cart Management
-  From the navbar, I can navigate to the cart where all the products that I want to buy are mentioned.
+  - From the navbar, I can navigate to the cart where all the products that I want to buy are mentioned.
   On the product card,
   - I can see the quantity of a particular product.
   - I can Increase or Decrease the quantity of a particular product.
@@ -25,7 +25,7 @@
   - Add the product to the Wishlist
   - I can see the price details card of the cart containing a button to checkout which will show the total price of the products with its quantity.
 - Wishlist Management
-  From the navbar, I can navigate to my wishlist where all the products that I would like to buy are mentioned.
+  - From the navbar, I can navigate to my wishlist where all the products that I would like to buy are mentioned.
   On the product card,
   - I can remove the item from the wishlist
   - Add the item to the cart
