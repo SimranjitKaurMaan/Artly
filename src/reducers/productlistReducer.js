@@ -34,7 +34,9 @@ export const productlistReducer = (state, action) => {
       };
       case "FILTER_BY_ARTIST":{
         let result = [...state.products];
-        result = applyFilterAndSorts(state);
+        const distinctArtists = state.products.reduce((acc, { artist }) => (acc.includes(artist) ? acc : [...acc, artist]),[]);
+        const newState = {...state, artists: distinctArtists}
+        result = applyFilterAndSorts(newState);
         const artist = action.payload;
         const filteredByArtist = handleFilterByArtist([...result],{artists: [...state.artists, artist]})
         return {
