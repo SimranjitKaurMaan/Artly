@@ -1,7 +1,8 @@
 ## Artly Store - (n.) transporting souls to a world of creativity.
 ### We house an impressive selection of fine art to cater to different sensibilities and tastes. Discover our extensive fine art collection by browsing through our different collections below.
 
-
+## Live Demo
+[Artly Store](https://artly.netlify.app/)
 ## Features:
 - Home Page
   - I can see a landing page with a list of featured categories.
