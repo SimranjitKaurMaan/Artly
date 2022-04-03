@@ -10,8 +10,17 @@ export const SignUp = () => {
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
+        console.log(response);
         document.cookie = "token=" + response.encodedToken;
         navigate('/login');
+    }
+    const testUserSignupHandler =  async (event) => {
+        event.preventDefault();
+        setUserData({email:'test',password:'test'});
+        const response = await signupUser(userData);
+        console.log(response);
+        document.cookie = "token=" + response.encodedToken;
+        navigate('/');
     }
     return (<>
     <HeaderNavBar/>
@@ -34,6 +43,7 @@ export const SignUp = () => {
                             <input type="radio" className="input-field"></input><span className="radio-text">I accept all Terms & Conditions</span>
                         </div>
                         <button className="btn btn-primary" onClick={signupHandler}>Create New Account</button>
+                        <button className="btn btn-primary" onClick={testUserSignupHandler}>Create Test Account</button>
                         <Link to="/login">Already have an account<i className="fa fa-thin fa-chevron-right"></i></Link>
                     </div>
                 </div>
