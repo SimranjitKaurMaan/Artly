@@ -40,7 +40,8 @@ export const fetchData = async (requestType, apiName) => {
     const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
     const headers = {
         Accept: 'application/json',
-        authorization: encodedToken
+        authorization: encodedToken,
+        credentials: 'include'
     }
     try
     {
@@ -77,7 +78,8 @@ const toQueryString = (obj) => {
     const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
     const headers = {
         Accept: 'application/json',
-        authorization: encodedToken
+        authorization: encodedToken,
+        credentials: 'include'
     }
     try
     {
@@ -116,7 +118,8 @@ export const postDataWithToken = async (requestType, apiUrl, data) => {
     const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
     const headers = {
         Accept: 'application/json',
-        authorization: encodedToken
+        authorization: encodedToken,
+        credentials: 'include'
     }
     try
     {
@@ -137,7 +140,8 @@ export const fetchDataWithToken = async (requestType, apiUrl) => {
     const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
     const headers = {
         Accept: 'application/json',
-        authorization: encodedToken
+        authorization: encodedToken,
+        credentials: 'include'
     }
     try
     {
