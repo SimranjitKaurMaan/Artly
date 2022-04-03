@@ -41,7 +41,7 @@ export const fetchData = async (requestType, apiName) => {
     const headers = {
         Accept: 'application/json',
         authorization: encodedToken,
-        credentials: 'include'
+        credentials: true
     }
     try
     {
@@ -79,7 +79,7 @@ const toQueryString = (obj) => {
     const headers = {
         Accept: 'application/json',
         authorization: encodedToken,
-        credentials: 'include'
+        credentials: true
     }
     try
     {
@@ -119,7 +119,7 @@ export const postDataWithToken = async (requestType, apiUrl, data) => {
     const headers = {
         Accept: 'application/json',
         authorization: encodedToken,
-        credentials: 'include'
+        credentials: true
     }
     try
     {
@@ -141,7 +141,7 @@ export const fetchDataWithToken = async (requestType, apiUrl) => {
     const headers = {
         Accept: 'application/json',
         authorization: encodedToken,
-        credentials: 'include'
+        credentials: true
     }
     try
     {
