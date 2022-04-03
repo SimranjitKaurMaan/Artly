@@ -1,8 +1,10 @@
+import { handleFilterByArtist, handleFilterByRating, handleSortByPrice, applyExistingFilters, applyFilterAndSorts } from "./FilterUtils";
+
 export const productlistReducer = (state, action) => {
     console.log(action);
-    console.log(`${JSON.stringify(state)}`);
+    //console.log(`${JSON.stringify(state)}`);
     switch (action.type) {
-      case "ADD_TO_PRODUCT_LIST":
+      case "ADD_TO_PRODUCT_LIST":{
         let minPrice = [...action.payload][0].price;
         let maxPrice = [...action.payload][0].price;
         [...action.payload].map(product => {
@@ -15,40 +17,50 @@ export const productlistReducer = (state, action) => {
             filteredProducts: [...action.payload],
             minPrice: minPrice,
             maxPrice: maxPrice
-        };
-      case "SORT_BY":
-        const sortType = action.payload;
-        switch (sortType) {
-          case "ascending":
-            return {
-              ...state,
-              filteredProducts: [...state.filteredProducts].sort(
-              (firstProduct, secondProduct) => firstProduct.price - secondProduct.price)
-            };
-          case "descending":
-            return {
-              ...state,
-              filteredProducts: [...state.filteredProducts].sort(
-              (firstProduct, secondProduct) => secondProduct.price - firstProduct.price
-            )};
         }
-      case "FILTER_BY_ARTIST":
+      };
+      case "SORT_BY_PRICE":{
+        let result = [...state.products];
+        result = applyFilterAndSorts(state);
+        const sortType = action.payload;
+        const sortedByPrice = handleSortByPrice([...result],{sortBy: sortType});
+        console.log(sortedByPrice);
+        return {
+          ...state,
+          filteredProducts: sortedByPrice,
+          sortBy: action.payload
+        }
+      };
+      case "FILTER_BY_ARTIST":{
+        let result = [...state.products];
+        result = applyFilterAndSorts(state);
         const artist = action.payload;
+        const filteredByArtist = handleFilterByArtist([...result],{artist: artist})
         return {
           ...state,
-          filteredProducts: [...state.products].filter(product => product.artist === artist)
-      }     
-      case "FILTER_BY_RATING":
+          filteredProducts: filteredByArtist,
+          artist: action.payload
+      }
+      };     
+      case "FILTER_BY_RATING": {
+        let result = [...state.products];
+        // hack: to nullify the previously selected rating
+        const newState = {...state, rating: 1}
+        result = applyFilterAndSorts(newState);
         const rating = action.payload;
+        const filteredByRating = handleFilterByRating([...result],{rating: rating})
         return {
           ...state,
-          filteredProducts: [...state.products].filter(product => product.rating >= rating)
-      } 
-      case "CLEAR_FILTERS" :
+          filteredProducts: filteredByRating,
+          rating: action.payload
+        } 
+       };
+      case "CLEAR_FILTERS" :{
         return {
           ...state,
           filteredProducts: [...state.products]
-      } 
+       }
+      };
       default:
         return state;
     }

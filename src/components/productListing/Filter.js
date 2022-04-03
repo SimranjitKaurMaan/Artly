@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react";
 import { useProductList } from "../../contexts/productlist-context";
 
 export const Filter = () => {
     const {productlistState, sortByHandler, filterByArtistHandler, filterByRatingHandler, clearFilters} = useProductList();
     const {products, minPrice, maxPrice} = productlistState;
-    const [artists , setArtists] = useState([]);
-
-    useEffect(() => {
-      const artists = products.map(product => product.artist);  
-      setArtists([...new Set(artists)]);
-    },[products]);
+    const artists = products.reduce((acc, { artist }) => (acc.includes(artist) ? acc : [...acc, artist]),[]);
 
     return (<aside>
     <div className="filter-container">
@@ -31,10 +25,9 @@ export const Filter = () => {
         </div>
         <div className="rating-container flex-col-wrap-start">
             <h2>Rating</h2>
-            <span className="check-group"><input type="radio" name="rating" onChange={() => filterByRatingHandler(4)}></input><label className="check-group-label">4 Stars & above</label></span>
-            <span className="check-group"><input type="radio" name="rating" onChange={() => filterByRatingHandler(3)}></input><label className="check-group-label">3 Stars & above</label></span>
-            <span className="check-group"><input type="radio" name="rating" onChange={() => filterByRatingHandler(2)}></input><label className="check-group-label">2 Stars & above</label></span>
-            <span className="check-group"><input type="radio" name="rating" onChange={() => filterByRatingHandler(1)}></input><label className="check-group-label">1 Stars & above</label></span>
+            {[4,3,2,1].map((_,index)=>{
+                 return <span className="check-group"><input type="radio" name="rating" onChange={() => filterByRatingHandler(index+1)}></input><label className="check-group-label">{index+1} Stars & above</label></span>
+            })}
         </div>
         <div className="sortby-container flex-col-wrap-start">
             <h2>Sort by</h2>
