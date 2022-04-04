@@ -16,7 +16,7 @@ import {
 import {
   getAllProductsHandler,
   getProductHandler,
-  getProductCategoryHandler,
+  getProductCategoryHandler
 } from "./backend/controllers/ProductController";
 import {
   addItemToWishlistHandler,
