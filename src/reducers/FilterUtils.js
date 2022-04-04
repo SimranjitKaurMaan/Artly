@@ -15,13 +15,11 @@ export const handleSortByPrice = (items, { sortBy }) => {
 
 export const handleFilterByRating = ( items , {rating}) =>  {
     const filteredItems = items.filter(product => product.rating >= rating);
-    //console.log(filteredItems);
     return filteredItems;
 } 
 
 export const handleFilterByPrice = ( items , {priceLimit}) =>  {
     const filteredItems = items.filter(product => product.price <= priceLimit);
-    //console.log(filteredItems);
     return filteredItems;
 } 
 
