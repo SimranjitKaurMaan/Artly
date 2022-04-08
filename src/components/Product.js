@@ -13,7 +13,6 @@ export const Product = () => {
         })();
     },[])
     return <>
-    <HeaderNavBar/>
     <main>
     <div class="main-section">
         <div class="main-container flex-row-wrap-center">

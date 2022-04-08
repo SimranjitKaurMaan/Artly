@@ -13,7 +13,6 @@ export const Cart = () => {
     const amountToPay = totalPrice - totalDiscount + deliveryCharges;
 
     return <>
-    <HeaderNavBar/>
     <main>
             <div className="main-section">
             <h1 className="highlight-text">My Cart</h1>

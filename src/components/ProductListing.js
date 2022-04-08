@@ -6,7 +6,6 @@ import { Products } from "./productListing/Products";
 export const ProductListing = () => {
     const { category } = useParams();
     return <div className="wrapper">
-            <HeaderNavBar/>
             <Products category={category}/>
             <Filter/>
         </div>    
