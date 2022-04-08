@@ -17,7 +17,6 @@ export const Login = () => {
         }
     }
     return (<>
-        <HeaderNavBar/>
         <main>
             <div className="main-section">
                 <div className="main-container flex-col-wrap-center">

@@ -9,7 +9,6 @@ export const WishList = () => {
     const {productsInCart} = cartState;
     const { productsInWishlist } = wishlistState;
     return <div className="wishlist-wrapper">
-            <HeaderNavBar/>
             <main>
                 <div className="flex-col-wrap-center">
                     <h1 className="highlight-text">My Wishlist</h1>

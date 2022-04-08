@@ -6,7 +6,6 @@ import { Trending } from "./home /Trending"
 
 export const Main = () => {
     return <>
-            <HeaderNavBar/>
               <main>
                   <div className="main-container flex-col-wrap-center">
                     <Banner/>
@@ -14,6 +13,5 @@ export const Main = () => {
                     <Trending/>
                   </div>
               </main>
-            {/* <Footer/> */}
         </>
 }

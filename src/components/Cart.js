@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useCart } from "../contexts/cart-context";
 import { useWishlist } from "../contexts/wishlist-context";
-import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 
 export const Cart = () => {
     const { cartState , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
@@ -13,7 +11,6 @@ export const Cart = () => {
     const amountToPay = totalPrice - totalDiscount + deliveryCharges;
 
     return <>
-    <HeaderNavBar/>
     <main>
             <div className="main-section">
             <h1 className="highlight-text">My Cart</h1>

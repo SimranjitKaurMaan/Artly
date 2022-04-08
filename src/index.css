@@ -8,10 +8,14 @@
 }
 
 /* Body  */
+html, body, #root, #root>div {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-hero-background);
+}
 
 body {
   display: flex;
-  background-color: var(--color-hero-background);
   width: 100%;
 }
 
@@ -20,12 +24,8 @@ main {
   grid-area: main;
 }
 
-header {
-  grid-area: header;
-}
 
 /* Header */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -292,11 +292,9 @@ form > input {
   grid-gap: 1.5rem;
   grid-template-columns: 13rem 1fr;
   grid-template-areas: 
-  "header header"
   "aside main"
   "aside main"
-  "aside main"
-  "footer footer";
+  "aside main";
 }
 
 
@@ -305,24 +303,19 @@ form > input {
   width: 100%;
   grid-gap: 1.5rem;
   grid-template-areas: 
-  "header header"
   "main main"
   "main main"
-  "main main"
-  "footer footer";
+  "main main";
 }
 
 .login-wrapper {
   display: grid;
   width: 100%;
-  height: 90rem;
   grid-gap: 20px;
   grid-template-areas: 
-  "header header"
   "main main"
   "main main"
-  "main main"
-  "footer footer";
+  "main main";
 }
 
 .cart-wrapper {
@@ -330,11 +323,9 @@ form > input {
   width: 100%;
   grid-gap: 1.5rem;
   grid-template-areas: 
-  "header header"
   "main main"
   "main main"
-  "main main"
-  "footer footer";
+  "main main";
 }
 
 .wishlist-wrapper {
@@ -343,11 +334,9 @@ form > input {
   grid-gap: 1.5rem;
   grid-template-columns: repeat(4, 13rem) 1fr;
   grid-template-areas: 
-  "header header header header header"
   "main   main    main   main   main"
   "main   main    main   main   main"
-  "main   main    main   main   main"
-  "footer footer  footer footer footer";
+  "main   main    main   main   main";
 }
 
 
@@ -395,19 +384,13 @@ footer {
   background-color: var(--color-primary-lighter);
   margin-top: auto;
   width: 100%;
-  grid-area: footer;
-}
-
-.footer-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
 }
+
 
 .footer-container i {
   padding: var(--space-sm);
