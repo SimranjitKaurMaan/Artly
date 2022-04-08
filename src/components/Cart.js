@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useCart } from "../contexts/cart-context";
 import { useWishlist } from "../contexts/wishlist-context";
-import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 
 export const Cart = () => {
     const { cartState , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();

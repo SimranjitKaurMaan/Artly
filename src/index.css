@@ -11,6 +11,7 @@
 html, body, #root, #root>div {
   height: 100%;
   width: 100%;
+  background-color: var(--color-hero-background);
 }
 
 body {
