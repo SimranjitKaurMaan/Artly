@@ -12,7 +12,7 @@ export const Cart = () => {
 
     return <>
     <main>
-            <div className="main-section">
+            <div className="flex-col-wrap-center">
             <h1 className="highlight-text">My Cart</h1>
                 <div className="main-container flex-row-wrap-center">
                     <div className="flex-col-wrap-center">
