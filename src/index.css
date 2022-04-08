@@ -454,6 +454,7 @@ footer {
   font-weight: var(--fw-bold);
   color: var(--color-primary-darker);
   padding-top: 4rem;
+  text-align: center;
 }
 
 .grid-4 {
