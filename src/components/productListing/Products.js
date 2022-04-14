@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { useLocation, useNavigate } from 'react-router';
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/auth-context";
 import { useCart } from "../../contexts/cart-context";
 import { useProductList } from "../../contexts/productlist-context";
 import { useWishlist } from "../../contexts/wishlist-context";
@@ -7,6 +9,9 @@ import { fetchProductsByCategory } from "../utils/requestUtils/ProductListingReq
 
 
 export const Products = ({category}) => {
+    const { isLoggedIn } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
     const {productlistState, addToProductListHandler} = useProductList();
     const {cartState, addToCartHandler} = useCart();
     const {wishlistState, addToWishlistHandler} = useWishlist();
@@ -39,7 +44,7 @@ export const Products = ({category}) => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                           { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`}>Go to Cart</Link></button>:<button className="btn btn-secondary" id={product._id} onClick={() => addToCartHandler(product)}>Add to Cart</button>}
+                           { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`}>Go to Cart</Link></button>:<button className="btn btn-secondary" id={product._id} onClick={() => {isLoggedIn ? addToCartHandler(product): navigate('/signup', {replace: true, state: {from : location}});}}>Add to Cart</button>}
                         </div>
                     </div>)}
                 </div>

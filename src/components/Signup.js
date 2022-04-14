@@ -1,26 +1,30 @@
 import { useState } from 'react';
+import { useAuth } from '../contexts/auth-context';
 import {Link} from 'react-router-dom';
-import { useNavigate } from 'react-router';
-import {HeaderNavBar} from './customComponents/HeaderNavBar';
+import { useNavigate, useLocation } from 'react-router';
 import { signupUser } from './utils/requestUtils/AuthRequestUtils';
 
 export const SignUp = () => {
+    const {setIsLoggedIn } = useAuth();
     const [userData, setUserData] = useState({email: '',password: ''});
+    const location = useLocation();
     const navigate = useNavigate();
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
-        navigate('/login');
+        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+        navigate(location?.state?.from?.pathname, { replace: true });
     }
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();
-        setUserData({email:'test',password:'test'});
-        const response = await signupUser(userData);
+        setUserData({...userData, email: "test", password: "test"});
+        const response = await signupUser({email: "test", password: "test"});
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
-        navigate('/');
+        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+        navigate(location?.state?.from?.pathname, { replace: true });
     }
     return (<>
     <main>
