@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router';
-import { HeaderNavBar } from "./customComponents/HeaderNavBar"
 import { loginUser } from "./utils/requestUtils/AuthRequestUtils";
 
 export const Login = () => {
