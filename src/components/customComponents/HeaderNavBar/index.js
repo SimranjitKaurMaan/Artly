@@ -1,8 +1,10 @@
 import {Link} from 'react-router-dom';
+import { useAuth } from '../../../contexts/auth-context';
 import { useCart } from '../../../contexts/cart-context';
 import { useWishlist } from '../../../contexts/wishlist-context';
 
 export const HeaderNavBar = () => {
+    const {isLoggedIn} = useAuth();
     const { cartState } = useCart();
     const {wishlistState} = useWishlist();
     const {productsInCart} = cartState;
@@ -19,7 +21,7 @@ export const HeaderNavBar = () => {
         </form>
         <i className="fa fa-search fa-2x highlight-text"></i>
     </div>
-    <Link className="btn btn-primary btn-header-login" to="/login">Login</Link>
+    {!isLoggedIn && <Link className="btn btn-primary btn-header-login" to="/login">Login</Link>}
     <div className="header-nav">
         <nav>
             <ul>
