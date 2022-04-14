@@ -29,7 +29,7 @@ export const Products = ({category}) => {
             <div className="main-section">
                 <div className="main-container flex-row-wrap-center">
                     {filteredProducts.map(product => <div className="card-container card-icon-overlay-container">
-                        <div className="card-wish-icon" onClick={()=> addToWishlistHandler(product)}><i className={(productsInWishlist.find( ({ _id }) => _id === product._id )? 'fas': 'far') + " fa-heart fa-2x "}></i></div>
+                        <div className="card-wish-icon" onClick={()=> { isLoggedIn ? addToWishlistHandler(product) : navigate('/signup', {replace: true, state: {from : location}});}}><i className={(productsInWishlist.find( ({ _id }) => _id === product._id )? 'fas': 'far') + " fa-heart fa-2x "}></i></div>
                         <Link to={`/product/${product._id}`}>
                             <div className="card-body card-vertical-body">
                                 <img className="card-img card-vertical-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>
