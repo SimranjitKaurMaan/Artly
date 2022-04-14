@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { CartProvider } from "./contexts/cart-context";
 import { WishlistProvider } from "./contexts/wishlist-context";
 import { ProductlistProvider } from "./contexts/productlist-context";
+import { AuthProvider } from "./contexts/auth-context";
 
 
 
@@ -16,6 +17,7 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
+    <AuthProvider>
     <ProductlistProvider>
     <WishlistProvider>
     <CartProvider>
@@ -25,6 +27,7 @@ ReactDOM.render(
     </CartProvider>
     </WishlistProvider>
     </ProductlistProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
