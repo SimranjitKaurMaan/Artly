@@ -3,6 +3,11 @@
 
 ## Live Demo
 [Artly Store](https://artly.netlify.app/)
+
+
+https://user-images.githubusercontent.com/9392954/163686673-2bf590f6-1550-41ca-a39f-825b4c856b78.mp4
+
+
 ## Features:
 - Home Page
   - I can see a landing page with a list of featured categories.
