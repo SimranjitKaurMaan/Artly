@@ -2,7 +2,7 @@ import { useProductList } from "../../contexts/productlist-context";
 
 export const Filter = () => {
     const {productlistState, sortByHandler, filterByArtistHandler, filterByRatingHandler, filterByPriceHandler, clearFilters} = useProductList();
-    const {products, minPrice, maxPrice, sortBy, rating , artists, priceLimit} = productlistState;
+    const {products, minPrice, maxPrice, sortBy, rating , selectedArtists , priceLimit} = productlistState;
     const distinctArtists = products.reduce((acc, { artist }) => (acc.includes(artist) ? acc : [...acc, artist]),[]);
 
     return (<aside>
@@ -19,7 +19,7 @@ export const Filter = () => {
             <h2>Artist</h2>
             {distinctArtists.map( artist =>
             <span className="check-group">
-                <input type="checkbox" name="category" checked={artists.includes(artist)} onChange={() => filterByArtistHandler(artist)}></input><label className="check-group-label">{artist}</label>
+                <input type="checkbox" name="category" checked={selectedArtists.includes(artist)} onChange={() => filterByArtistHandler(artist)}></input><label className="check-group-label">{artist}</label>
             </span>)}
             
         </div>

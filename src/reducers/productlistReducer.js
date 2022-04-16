@@ -11,18 +11,22 @@ export const productlistReducer = (state, action) => {
            minPrice = product.price < minPrice ? product.price : minPrice;
            maxPrice = product.price > maxPrice ? product.price : maxPrice;
         });
+        const distinctArtists = [...action.payload].reduce((acc, { artist }) => (acc.includes(artist) ? acc : [...acc, artist]),[]);
         return {
             ...state,
             products: [...action.payload],
             filteredProducts: [...action.payload],
             minPrice: minPrice,
             maxPrice: maxPrice,
-            priceLimit: minPrice
+            priceLimit: maxPrice,
+            artists: distinctArtists
         }
       };
       case "SORT_BY_PRICE":{
         let result = [...state.products];
-        result = applyFilterAndSorts(state);
+        const newState = {...state};
+        newState.artists = newState.selectedArtists.length !== 0 ? newState.selectedArtists : newState.artists; 
+        result = applyFilterAndSorts(newState);
         const sortType = action.payload;
         const sortedByPrice = handleSortByPrice([...result],{sortBy: sortType});
         console.log(sortedByPrice);
@@ -34,21 +38,21 @@ export const productlistReducer = (state, action) => {
       };
       case "FILTER_BY_ARTIST":{
         let result = [...state.products];
-        const distinctArtists = state.products.reduce((acc, { artist }) => (acc.includes(artist) ? acc : [...acc, artist]),[]);
-        const newState = {...state, artists: distinctArtists}
-        result = applyFilterAndSorts(newState);
-        const artist = action.payload;
-        const filteredByArtist = handleFilterByArtist([...result],{artists: [...state.artists, artist]})
+        result = applyFilterAndSorts(state);
+        const selectedArtist = action.payload;
+        const selectedArtists = state.selectedArtists.includes(selectedArtist) ? state.selectedArtists.filter(artist => artist !== selectedArtist) : [...state.selectedArtists , selectedArtist];
+        const filteredByArtist = handleFilterByArtist([...result],{artists: selectedArtists})
         return {
           ...state,
           filteredProducts: filteredByArtist,
-          artists:[...state.artists, artist]
+          selectedArtists: selectedArtists
       }
       };     
       case "FILTER_BY_RATING": {
         let result = [...state.products];
         // hack: to nullify the previously selected rating
-        const newState = {...state, rating: 1}
+        const newState = {...state, rating: 1};
+        newState.artists = newState.selectedArtists.length !== 0 ? newState.selectedArtists : newState.artists; 
         result = applyFilterAndSorts(newState);
         const rating = action.payload;
         const filteredByRating = handleFilterByRating([...result],{rating: rating})
@@ -60,7 +64,9 @@ export const productlistReducer = (state, action) => {
        };
       case "FILTER_BY_PRICE": {
         let result = [...state.products];
-        result = applyFilterAndSorts(state);
+        const newState = {...state};
+        newState.artists = newState.selectedArtists.length !== 0 ? newState.selectedArtists : newState.artists; 
+        result = applyFilterAndSorts(newState);
         const price = action.payload;
         const filteredByPrice = handleFilterByPrice([...result],{priceLimit: price})
         return {
@@ -74,8 +80,8 @@ export const productlistReducer = (state, action) => {
           ...state,
           sortBy: '',
           rating: 1,
-          artists:[],
-          priceLimit: state.minPrice,
+          selectedArtists:[],
+          priceLimit: state.maxPrice,
           filteredProducts: [...state.products]
        }
       };

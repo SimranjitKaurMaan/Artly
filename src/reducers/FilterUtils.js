@@ -24,8 +24,8 @@ export const handleFilterByPrice = ( items , {priceLimit}) =>  {
 } 
 
 export const handleFilterByArtist = ( items, {artists}) => {
-    console.log(`items: ${JSON.stringify(items)}`)
-    console.log(`artists: ${artists}`);
+    // console.log(` handleFilterByArtist items: ${JSON.stringify(items)}`)
+    // console.log(` handleFilterByArtist artists: ${artists}`);
     const filteredItems = items.filter(product => artists.includes(product.artist));
     return filteredItems;
 }
@@ -40,19 +40,15 @@ const functionalChaining =
 };
 
 export const applyFilterAndSorts = (state) => {
-const {
-    products,
-    sortBy,
-    rating,
-    artists
-} = state;
-const composedFunctions = functionalChaining(
-    { sortBy, rating, artists },
-    handleSortByPrice,
-    handleFilterByRating,
-    handleFilterByArtist
-);
+  const { products, sortBy, rating, artists, priceLimit } = state;
+  const composedFunctions = functionalChaining(
+      { sortBy, rating, artists, priceLimit },
+      handleSortByPrice,
+      handleFilterByRating,
+      handleFilterByArtist,
+      handleFilterByPrice
+  );
 
-const updatedList = composedFunctions(products);
-return updatedList;
+ const updatedList = composedFunctions(products);
+ return updatedList;
 };
