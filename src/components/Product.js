@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import {Link} from 'react-router-dom';
 import { useParams } from "react-router";
-import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 import { fetchProduct } from "./utils/requestUtils/ProductListingRequestUtils";
 
 export const Product = () => {
@@ -30,7 +30,7 @@ export const Product = () => {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <button className="btn btn-secondary">Go to Cart</button>
+                    <button className="btn btn-secondary"><Link to={`/cart`} className="btn-go-to-cart">Go to Cart</Link></button>
                 </div>
             </div>
         </div>
