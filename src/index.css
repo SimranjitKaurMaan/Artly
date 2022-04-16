@@ -35,6 +35,7 @@ header {
   background-color: var(--color-primary-lighter);
   padding: 2rem;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .header-nav {
