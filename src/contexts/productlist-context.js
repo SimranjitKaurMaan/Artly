@@ -12,6 +12,7 @@ export const ProductlistProvider = ({ children }) => {
     sortBy: '',
     rating: 1,
     artists: [],
+    selectedArtists: [],
     priceLimit: 0
   });
 
