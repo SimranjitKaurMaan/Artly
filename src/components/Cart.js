@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { useCart } from "../contexts/cart-context";
 import { useWishlist } from "../contexts/wishlist-context";
 import { EmptyCart } from "./customComponents/EmptyCart";
@@ -30,9 +31,9 @@ export const Cart = () => {
                                                 </div>
                                                 <div>
                                                     <label className="quantity">Quantity:</label>    
-                                                    <button className="btn btn-primary btn-outlined" onClick={() => incrementCartItemHandler(product)}>+</button>
-                                                    {product.qty}
-                                                    <button className="btn btn-secondary btn-outlined" disabled={product.qty < 2} onClick={() => decrementCartItemHandler(product)}>-</button>
+                                                    <button className="btn btn-secondary btn-outlined btn-sm" disabled={product.qty < 2} onClick={() => decrementCartItemHandler(product)}>-</button>
+                                                    {<span className="text-product-qty">{product.qty}</span>}
+                                                    <button className="btn btn-primary btn-outlined btn-sm" onClick={() => incrementCartItemHandler(product)}>+</button>
                                                 </div>
                                                 <div className="card-hz-actions">
                                                     <button className="btn btn-primary" onClick={() => deleteFromCartHandler(product)}>Remove From Cart</button>
@@ -62,7 +63,7 @@ export const Cart = () => {
                             <div>${amountToPay}</div>
                         </div>
                         <div className="amount-container">You will save ${totalDiscount} on this order</div>
-                        <button className="btn btn-primary">Place Order</button>
+                        <button className="btn btn-primary" onClick={() => toast.success("Order is placed successfully.")}>Place Order</button>
                     </div> : <EmptyCart/>}
                 </div>
             </div>

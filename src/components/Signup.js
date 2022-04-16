@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../contexts/auth-context';
 import {Link} from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router';
@@ -12,20 +14,27 @@ export const SignUp = () => {
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
-        console.log(response);
         document.cookie = "token=" + response.encodedToken;
         setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         navigate(location?.state?.from?.pathname, { replace: true });
+        showSignupToast();
     }
+
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();
         setUserData({...userData, email: "test", password: "test"});
         const response = await signupUser({email: "test", password: "test"});
-        console.log(response);
         document.cookie = "token=" + response.encodedToken;
         setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         navigate(location?.state?.from?.pathname, { replace: true });
+        showTestSignupToast();
     }
+
+
+    const showSignupToast = () => toast.success("You have signed up successfully.");
+
+    const showTestSignupToast = () => toast.success("You have signed up as a test user.");
+
     return (<>
     <main>
     <div className="main-section">

@@ -15,7 +15,7 @@ export const Products = ({category}) => {
     const {productlistState, addToProductListHandler} = useProductList();
     const {cartState, addToCartHandler} = useCart();
     const {wishlistState, addToWishlistHandler} = useWishlist();
-    const {products, filteredProducts} = productlistState;
+    const {filteredProducts} = productlistState;
     const {productsInCart} = cartState;
     const {productsInWishlist} = wishlistState;
     useEffect(() => {
