@@ -44,7 +44,7 @@ export const Products = ({category}) => {
                             </div>
                         </Link>
                         <div className="card-footer">
-                           { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`}>Go to Cart</Link></button>:<button className="btn btn-secondary" id={product._id} onClick={() => {isLoggedIn ? addToCartHandler(product): navigate('/signup', {replace: true, state: {from : location}});}}>Add to Cart</button>}
+                           { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`} className="btn-go-to-cart">Go to Cart</Link></button>:<button className="btn btn-secondary" id={product._id} onClick={() => {isLoggedIn ? addToCartHandler(product): navigate('/signup', {replace: true, state: {from : location}});}}>Add to Cart</button>}
                         </div>
                     </div>)}
                 </div>

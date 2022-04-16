@@ -28,7 +28,7 @@ export const WishList = () => {
                             </div>
                             <div className="card-footer">
                                 <button className="btn btn-secondary" onClick={()=> deleteFromWishlistHandler(product)}>Remove From Wishlist</button>
-                                { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`}>Go to Cart</Link></button>:<button className="btn btn-secondary" onClick={() => addToCartHandler(product)}>Add to Cart</button>}
+                                { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`} className="btn-go-to-cart" >Go to Cart</Link></button>:<button className="btn btn-secondary" onClick={() => addToCartHandler(product)}>Add to Cart</button>}
                             </div>
                         </div>)}
                     </div>
