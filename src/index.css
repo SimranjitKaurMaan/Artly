@@ -35,6 +35,7 @@ header {
   background-color: var(--color-primary-lighter);
   padding: 2rem;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .header-nav {
@@ -389,6 +390,7 @@ footer {
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
+  margin-top: 2rem;
 }
 
 
