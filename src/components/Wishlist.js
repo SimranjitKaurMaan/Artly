@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useWishlist } from "../contexts/wishlist-context";
 import { useCart } from "../contexts/cart-context";
 import { HeaderNavBar } from "./customComponents/HeaderNavBar";
+import { EmptyWishlist } from "./customComponents/EmptyWishlist";
 
 export const WishList = () => {
     const {wishlistState, deleteFromWishlistHandler} = useWishlist();
@@ -11,7 +12,7 @@ export const WishList = () => {
     return <div className="wishlist-wrapper">
             <main>
                 <div className="flex-col-wrap-center">
-                    <h1 className="highlight-text">My Wishlist</h1>
+                    <h1 className="highlight-text">Wishlist</h1>
                     <div className="main-container flex-row-wrap-center">
                         {productsInWishlist.map(product => <div className="card-container card-icon-overlay-container">
                             <span className="card-wish-icon"><i className="fas fa-heart fa-2x icon-checked"></i></span>
@@ -28,9 +29,10 @@ export const WishList = () => {
                             </div>
                             <div className="card-footer">
                                 <button className="btn btn-secondary" onClick={()=> deleteFromWishlistHandler(product)}>Remove From Wishlist</button>
-                                { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`}>Go to Cart</Link></button>:<button className="btn btn-secondary" onClick={() => addToCartHandler(product)}>Add to Cart</button>}
+                                { productsInCart.some(item => item._id === product._id) ? <button className="btn btn-secondary"><Link to={`/cart`} className="btn-go-to-cart" >Go to Cart</Link></button>:<button className="btn btn-secondary" onClick={() => addToCartHandler(product)}>Add to Cart</button>}
                             </div>
                         </div>)}
+                        {productsInWishlist.length === 0 && <EmptyWishlist/>}
                     </div>
                 </div>                
             </main>

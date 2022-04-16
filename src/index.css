@@ -185,6 +185,10 @@ form > input {
 .btn-primary.btn-ghost {
   background-color: var(--color-primary-ghost);
 }
+ 
+.btn-go-to-cart {
+  color: var(--color-black);
+}
 /* Input */
 .input-group {
   margin-top: 2rem;
@@ -284,6 +288,19 @@ form > input {
   border-radius: var(--br-base);
   text-align: center;
   padding: 0.2rem 0.5rem;
+}
+
+/* Empty Cart */
+
+.empty-cart-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-cart-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 /* Grid */
