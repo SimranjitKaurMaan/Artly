@@ -1,5 +1,6 @@
 import { useCart } from "../contexts/cart-context";
 import { useWishlist } from "../contexts/wishlist-context";
+import { EmptyCart } from "./customComponents/EmptyCart";
 
 export const Cart = () => {
     const { cartState , incrementCartItemHandler, decrementCartItemHandler, deleteFromCartHandler} = useCart();
@@ -13,7 +14,7 @@ export const Cart = () => {
     return <>
     <main>
             <div className="flex-col-wrap-center">
-            <h1 className="highlight-text">My Cart</h1>
+            <h1 className="highlight-text">Cart</h1>
                 <div className="main-container flex-row-wrap-center">
                     <div className="flex-col-wrap-center">
                         {productsInCart.map(product => 
@@ -41,6 +42,7 @@ export const Cart = () => {
                                 </div>
                             </div>)}
                     </div>
+                    {productsInCart.length !== 0 ?
                     <div className="card-container price-container">
                         <div className="price-container-header">PRICE DETAILS</div>
                         <div className="amount-container flex-row-wrap-space-between">
@@ -61,7 +63,7 @@ export const Cart = () => {
                         </div>
                         <div className="amount-container">You will save ${totalDiscount} on this order</div>
                         <button className="btn btn-primary">Place Order</button>
-                    </div>
+                    </div> : <EmptyCart/>}
                 </div>
             </div>
         </main>
