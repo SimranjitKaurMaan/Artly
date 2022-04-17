@@ -14,7 +14,7 @@ export const WishList = () => {
                 <div className="flex-col-wrap-center">
                     <h1 className="highlight-text">Wishlist</h1>
                     <div className="main-container flex-row-wrap-center">
-                        {productsInWishlist.map(product => <div className="card-container card-icon-overlay-container">
+                        {productsInWishlist.map(product => <div className="card-container card-icon-overlay-container wishlist-card-container">
                             <span className="card-wish-icon"><i className="fas fa-heart fa-2x icon-checked"></i></span>
                             <div className="card-body card-vertical-body">
                                 <img className="card-img card-vertical-img wishlist-card-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>

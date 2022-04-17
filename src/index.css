@@ -234,6 +234,14 @@ form > input {
   right: 2rem;
 }
 
+.card-container.card-icon-overlay-container.wishlist-card-container {
+   width: 20rem;
+}
+
+.card-img.card-vertical-img.wishlist-card-img {
+  height: 20rem;
+}
+
 .card-wish-icon i {
   color: var(--color-red);
 }
@@ -285,10 +293,6 @@ form > input {
 
 .card-hz-content-aside {
   padding-left: 1rem;
-}
-
-.card-img.card-vertical-img.wishlist-card-img {
-  height: 24rem;
 }
 
 .slider-quantity {
