@@ -287,6 +287,10 @@ form > input {
   padding-left: 1rem;
 }
 
+.card-img.card-vertical-img.wishlist-card-img {
+  height: 24rem;
+}
+
 .slider-quantity {
   width: max-content;
   border-radius: var(--br-base);
