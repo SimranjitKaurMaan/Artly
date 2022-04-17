@@ -13,7 +13,7 @@ export const products = [
     price:  800,
     discount: 10,
     rating: 4.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101167/ospan-ali-6xv4A1VA1rU-unsplash_ymbtrp.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101167/ospan-ali-6xv4A1VA1rU-unsplash_ymbtrp.jpg",
     categoryName: "Photography",
   },
   {
@@ -23,7 +23,7 @@ export const products = [
     price:  1200,
     discount: 10,
     rating: 3.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101815/charlie-green-3JmfENcL24M-unsplash_xvhqfj.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101815/charlie-green-3JmfENcL24M-unsplash_xvhqfj.jpg",
     categoryName: "Photography",
   },
   {
@@ -33,7 +33,7 @@ export const products = [
     price:  400,
     discount: 10,
     rating: 2.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101359/andriyko-podilnyk-JxfYO0hhZGQ-unsplash_n57aiz.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101359/andriyko-podilnyk-JxfYO0hhZGQ-unsplash_n57aiz.jpg",
     categoryName: "Photography",
   },
   {
@@ -43,7 +43,7 @@ export const products = [
     price:  1600,
     discount: 10,
     rating: 1.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101473/art-hauntington-jzY0KRJopEI-unsplash_gmxp5q.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101473/art-hauntington-jzY0KRJopEI-unsplash_gmxp5q.jpg",
     categoryName: "Photography"
   },
   {
@@ -53,7 +53,7 @@ export const products = [
     price:  400,
     discount: 20,
     rating: 4.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101180/brooklyn-MO5qO9xpZhA-unsplash_jbvfhj.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101180/brooklyn-MO5qO9xpZhA-unsplash_jbvfhj.jpg",
     categoryName: "Impressionism",
   },
   {
@@ -63,7 +63,7 @@ export const products = [
     price:  800,
     discount: 20,
     rating: 3.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101151/alan-scales-1_WMZARl81c-unsplash_wxogyv.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101151/alan-scales-1_WMZARl81c-unsplash_wxogyv.jpg",
     categoryName: "Impressionism",
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     price:  1200,
     discount: 20,
     rating: 2.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650102233/birmingham-museums-trust-5F3u0j6s6pM-unsplash_nxfxvt.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650102233/birmingham-museums-trust-5F3u0j6s6pM-unsplash_nxfxvt.jpg",
     categoryName: "Impressionism",
   },
   {
@@ -83,7 +83,7 @@ export const products = [
     price:  800,
     discount: 20,
     rating: 1.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650102701/jr-korpa-O-p6tKWPPig-unsplash_jna950.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650102701/jr-korpa-O-p6tKWPPig-unsplash_jna950.jpg",
     categoryName: "Impressionism",
   },
   {
@@ -93,7 +93,7 @@ export const products = [
     price:  400,
     discount: 20,
     rating: 4.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650103212/andreas-fickl-o1xcUi-Yt_w-unsplash_x3rqpc.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650103212/andreas-fickl-o1xcUi-Yt_w-unsplash_x3rqpc.jpg",
     categoryName: "PopArt",
   },
   {
@@ -103,7 +103,7 @@ export const products = [
     price:  1200,
     discount: 20,
     rating: 3.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650103208/brooke-lark-V4MBq8kue3U-unsplash_ar4mlm.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650103208/brooke-lark-V4MBq8kue3U-unsplash_ar4mlm.jpg",
     categoryName: "PopArt",
   },
   {
@@ -113,7 +113,7 @@ export const products = [
     price:  1600,
     discount: 20,
     rating: 2.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650103204/davisuko-5E5N49RWtbA-unsplash_usky7y.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650103204/davisuko-5E5N49RWtbA-unsplash_usky7y.jpg",
     categoryName: "PopArt",
   },
   {
@@ -123,7 +123,7 @@ export const products = [
     price:  800,
     discount: 20,
     rating: 1.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650103202/elcarito-XxER0_5jblI-unsplash_us9tlp.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650103202/elcarito-XxER0_5jblI-unsplash_us9tlp.jpg",
     categoryName: "PopArt",
   },
   {
@@ -133,7 +133,7 @@ export const products = [
     price:  2400,
     discount: 20,
     rating: 1.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650103966/robert-keane-mPJqwk-kAWw-unsplash_d2uwmj.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650103966/robert-keane-mPJqwk-kAWw-unsplash_d2uwmj.jpg",
     categoryName: "PopArt",
   },
   {
@@ -143,7 +143,7 @@ export const products = [
     price:  3600,
     discount: 20,
     rating: 1.9,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650103914/alexander-ant-r7xdS9hjYYE-unsplash_g8sliu.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650103914/alexander-ant-r7xdS9hjYYE-unsplash_g8sliu.jpg",
     categoryName: "PopArt",
   },
   {
@@ -153,7 +153,7 @@ export const products = [
     price:  1200,
     discount: 30,
     rating: 4.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650101186/europeana-5TK1F5VfdIk-unsplash_ziromp.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650101186/europeana-5TK1F5VfdIk-unsplash_ziromp.jpg",
     categoryName: "Oil Paintings",
   },
   {
@@ -163,7 +163,7 @@ export const products = [
     price:  800,
     discount: 30,
     rating: 3.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104263/klara-kulikova-kiLdjFm2y14-unsplash_vwiz0t.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104263/klara-kulikova-kiLdjFm2y14-unsplash_vwiz0t.jpg",
     categoryName: "Oil Paintings",
   },
   {
@@ -173,7 +173,7 @@ export const products = [
     price:  400,
     discount: 30,
     rating: 2.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104256/orfeas-green-G5A5ZNjS2tE-unsplash_dvkmg9.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104256/orfeas-green-G5A5ZNjS2tE-unsplash_dvkmg9.jpg",
     categoryName: "Oil Paintings",
   },
   {
@@ -183,7 +183,7 @@ export const products = [
     price:  800,
     discount: 30,
     rating: 1.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104251/federico-di-dio-photography-XVOBr3F95RY-unsplash_op2l2a.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104251/federico-di-dio-photography-XVOBr3F95RY-unsplash_op2l2a.jpg",
     categoryName: "Oil Paintings",
   },
   {
@@ -193,7 +193,7 @@ export const products = [
     price:  400,
     discount: 40,
     rating: 4.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1648081715/collection-1_m3tz5h.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image//upload/t_media_lib_thumb/v1648081715/collection-1_m3tz5h.jpg",
     categoryName: "Basel Works",
   },
   {
@@ -203,7 +203,7 @@ export const products = [
     price:  400,
     discount: 40,
     rating: 3.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104645/europeana-hSkbqHnt-g4-unsplash_y7awbi.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104645/europeana-hSkbqHnt-g4-unsplash_y7awbi.jpg",
     categoryName: "Basel Works",
   },
   {
@@ -213,7 +213,7 @@ export const products = [
     price:  2400,
     discount: 40,
     rating: 2.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104647/birmingham-museums-trust-5ruS8plfbvM-unsplash_agok2q.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104647/birmingham-museums-trust-5ruS8plfbvM-unsplash_agok2q.jpg",
     categoryName: "Basel Works",
   },
   {
@@ -223,7 +223,7 @@ export const products = [
     price:  1600,
     discount: 40,
     rating: 1.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104650/birmingham-museums-trust-e0wBK0xJXYQ-unsplash_mta2sj.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104650/birmingham-museums-trust-e0wBK0xJXYQ-unsplash_mta2sj.jpg",
     categoryName: "Basel Works",
   },
   {
@@ -233,7 +233,7 @@ export const products = [
     price:  800,
     discount: 40,
     rating: 4.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104992/imleedh-ali-Uf-_p8zZiT8-unsplash_drs2iq.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104992/imleedh-ali-Uf-_p8zZiT8-unsplash_drs2iq.jpg",
     categoryName: "Water",
   },
   {
@@ -243,7 +243,7 @@ export const products = [
     price:  800,
     discount: 40,
     rating: 3.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104990/aaron-burden-dXYE1d08BiY-unsplash_n7bozj.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104990/aaron-burden-dXYE1d08BiY-unsplash_n7bozj.jpg",
     categoryName: "Water",
   },
   {
@@ -253,7 +253,7 @@ export const products = [
     price:  6400,
     discount: 40,
     rating: 2.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104978/anastasia-taioglou-CTivHyiTbFw-unsplash_nvsatm.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104978/anastasia-taioglou-CTivHyiTbFw-unsplash_nvsatm.jpg",
     categoryName: "Water",
   },
   {
@@ -263,7 +263,7 @@ export const products = [
     price:  1600,
     discount: 40,
     rating: 1.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650104989/silas-baisch-K785Da4A_JA-unsplash_pg4px1.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650104989/silas-baisch-K785Da4A_JA-unsplash_pg4px1.jpg",
     categoryName: "Water",
   },
   {
@@ -273,7 +273,7 @@ export const products = [
     price:  1200,
     discount: 40,
     rating: 4.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650105295/rachel-mcdermott-0fN7Fxv1eWA-unsplash_smjrhm.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650105295/rachel-mcdermott-0fN7Fxv1eWA-unsplash_smjrhm.jpg",
     categoryName: "Portraits",
   },
   {
@@ -283,7 +283,7 @@ export const products = [
     price:  5600,
     discount: 40,
     rating: 3.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650105294/danie-franco-l9I93gZKTG4-unsplash_myhaha.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650105294/danie-franco-l9I93gZKTG4-unsplash_myhaha.jpg",
     categoryName: "Portraits",
   },
   {
@@ -293,7 +293,7 @@ export const products = [
     price:  1600,
     discount: 40,
     rating: 2.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650105292/richard-jaimes-s97-KYat9sA-unsplash_j4xnwg.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650105292/richard-jaimes-s97-KYat9sA-unsplash_j4xnwg.jpg",
     categoryName: "Portraits",
   },
   {
@@ -303,7 +303,7 @@ export const products = [
     price:  400,
     discount: 40,
     rating: 1.5,
-    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/v1650105291/ronan-kruithof-fSJs-cTmT94-unsplash_d1yzzz.jpg",
+    imageUrl: "https://res.cloudinary.com/duddwta8d/image/upload/t_media_lib_thumb/v1650105291/ronan-kruithof-fSJs-cTmT94-unsplash_d1yzzz.jpg",
     categoryName: "Portraits",
   },
 ];
