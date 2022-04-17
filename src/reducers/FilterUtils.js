@@ -24,8 +24,6 @@ export const handleFilterByPrice = ( items , {priceLimit}) =>  {
 } 
 
 export const handleFilterByArtist = ( items, {artists}) => {
-    // console.log(` handleFilterByArtist items: ${JSON.stringify(items)}`)
-    // console.log(` handleFilterByArtist artists: ${artists}`);
     const filteredItems = items.filter(product => artists.includes(product.artist));
     return filteredItems;
 }

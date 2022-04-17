@@ -4,7 +4,6 @@ import { useAuth } from "../../contexts/auth-context";
 export function RequiresAuth({ children }) {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
-  // console.log(location);
   return isLoggedIn ? (
     children
   ) : (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {toast} from "react-toastify";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router';
 import { loginUser } from "./utils/requestUtils/AuthRequestUtils";
@@ -12,7 +13,7 @@ export const Login = () => {
         if(response && response.encodedToken){
             navigate('/');
         } else{
-            console.error(response.errors[0]);
+            toast.error("You are not logged in yet.")
         }
     }
     return (<>
