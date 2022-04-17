@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useWishlist } from "../contexts/wishlist-context";
 import { useCart } from "../contexts/cart-context";
-import { HeaderNavBar } from "./customComponents/HeaderNavBar";
 import { EmptyWishlist } from "./customComponents/EmptyWishlist";
 
 export const WishList = () => {
@@ -11,13 +10,14 @@ export const WishList = () => {
     const { productsInWishlist } = wishlistState;
     return <div className="wishlist-wrapper">
             <main>
+                <div className="main-section">
                 <div className="flex-col-wrap-center">
                     <h1 className="highlight-text">Wishlist</h1>
                     <div className="main-container flex-row-wrap-center">
                         {productsInWishlist.map(product => <div className="card-container card-icon-overlay-container">
                             <span className="card-wish-icon"><i className="fas fa-heart fa-2x icon-checked"></i></span>
                             <div className="card-body card-vertical-body">
-                                <img className="card-img card-vertical-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>
+                                <img className="card-img card-vertical-img wishlist-card-img" alt="painting" src={product.imageUrl} sizes="(min-width: 600px) 200px,100px"/>
                                 <div className="card-content-aside flex-col-wrap-start">
                                     <div className="card-title">{product.title}</div>
                                     <div className="card-subtitle">Artist: {product.artist}</div>
@@ -34,7 +34,8 @@ export const WishList = () => {
                         </div>)}
                         {productsInWishlist.length === 0 && <EmptyWishlist/>}
                     </div>
-                </div>                
+                </div> 
+                </div>               
             </main>
         </div>
 }
