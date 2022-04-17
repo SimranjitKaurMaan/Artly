@@ -1,6 +1,4 @@
 export const wishlistReducer = (state, action) => {
-    console.log(action);
-    console.log(`${JSON.stringify(state)}`);
     switch (action.type) {
       case "DELETE_FROM_WISHLIST":
         return {

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const RequestType = {
     GET : 'GET',
     POST: 'POST',
@@ -24,7 +26,7 @@ export const fetchData = async (requestType, apiName) => {
         const jsonResponse = await response.json();
         return jsonResponse;    
     } catch(error) {
-       console.warn(`API error ${error}`);
+       toast.error(`Error while fetching data ${error}`);
        throw error;
     }
 }
@@ -51,7 +53,7 @@ export const fetchData = async (requestType, apiName) => {
         const jsonResponse = await response.json();
         return jsonResponse;    
     } catch(error) {
-       console.warn(`API error ${error}`);
+        toast.error(`Error while fetching data ${error}`);
        throw error;
     }
 }
@@ -88,7 +90,7 @@ const toQueryString = (obj) => {
         const jsonResponse = await response.json();
         return jsonResponse;    
     } catch(error) {
-       console.warn(`API error ${error}`);
+        toast.error(`Error while posting data ${error}`);
        throw error;
     }
 }
@@ -107,7 +109,7 @@ export const postData = async (requestType, apiUrl, data) => {
         const jsonResponse = await response.json();
         return jsonResponse;    
     } catch(error) {
-       console.warn(`API error ${error}`);
+        toast.error(`Error while posting data ${error}`);
        throw error;
     }
 }
@@ -128,7 +130,7 @@ export const postDataWithToken = async (requestType, apiUrl, data) => {
         const jsonResponse = await response.json();
         return jsonResponse;    
     } catch(error) {
-       console.warn(`API error ${error}`);
+        toast.error(`Error while posting data ${error}`);
        throw error;
     }
 }
@@ -148,7 +150,7 @@ export const fetchDataWithToken = async (requestType, apiUrl) => {
         const jsonResponse = await response.json();
         return jsonResponse;    
     } catch(error) {
-       console.warn(`API error ${error}`);
+        toast.error(`Error while fetching data ${error}`);
        throw error;
     }
 }

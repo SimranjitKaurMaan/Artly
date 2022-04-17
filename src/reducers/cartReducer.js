@@ -1,6 +1,4 @@
 export const cartReducer = (state, action) => {
-    console.log(action);
-    console.log(`${JSON.stringify(state)}`);
     switch (action.type) {
       case "INCREMENT_QTY_IN_CART": 
         return {

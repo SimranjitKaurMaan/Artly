@@ -1,8 +1,6 @@
 import { handleFilterByArtist, handleFilterByRating, handleSortByPrice, handleFilterByPrice, applyFilterAndSorts } from "./FilterUtils";
 
 export const productlistReducer = (state, action) => {
-    console.log(action);
-    //console.log(`${JSON.stringify(state)}`);
     switch (action.type) {
       case "ADD_TO_PRODUCT_LIST":{
         let minPrice = [...action.payload][0].price;
@@ -29,7 +27,6 @@ export const productlistReducer = (state, action) => {
         result = applyFilterAndSorts(newState);
         const sortType = action.payload;
         const sortedByPrice = handleSortByPrice([...result],{sortBy: sortType});
-        console.log(sortedByPrice);
         return {
           ...state,
           filteredProducts: sortedByPrice,
